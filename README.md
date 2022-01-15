@@ -1,4 +1,4 @@
-# DIY-Comm
+# DIY-n-BUY
 
 
 Our application is a web application built using React.js and Go lang. It allows for hobbyists to visualize their DIY assembly of individual parts and provides a platform for ordering all those parts with a single click. The project will demonstrate this functionality using wristwatch assembly, but can be extended to serve visualizations of machine parts, circuit assembly, modern furniture etc. 
