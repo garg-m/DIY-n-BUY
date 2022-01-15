@@ -12,4 +12,8 @@ Today, the decision to own a mechanical watch is not a logical one. And yet, the
 Harsh Soni- harshsoni@ufl.edu- 8983 9516 <br />
 Srisharanya Injarapu- injarapu.s@ufl.edu- 7595 6698 <br />
 Krishna Kireeti Rayaprolu- rayaprolu.k@ufl.edu- 6303 1300 <br />
-Mayank Garg- gargm@ufl.edu<br />
+Mayank Garg- gargm@ufl.edu <br />
+
+
+# Stack 
+We are using React for the frontend and Go for the backend.
