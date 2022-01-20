@@ -1,76 +1,19 @@
-## Project Overview
+## DIY-n-BUY
 
-## Members
+# Project Description
 
-## Architecture
+Our application is a web application built using React.js and Go. It allows for hobbyists to visualize their DIY assembly if individual parts and provides a platform for ordering all those parts with a single click. The project will demonstrate this functionality using wristwatch assembly, but can be extended to serve visualizations of machine parts, circuit assembly, modern furniture etc.
 
-# Getting Started with Create React App
+The hobbyist can create fresh builds, save those for future modifications, share them with fellow hobbyists, or continue to purchase the items used in the build. The builder tool accounts for compatibility, interoperability as well as availability of parts, along with summarizing the cost and ways of reducing it, for instance-notifying the hobbyist if any parts were purchased before.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Today, the decision to own a mechanical watch is not a logical one. And yet, there is a broad community of watch enthusiasts who hunt for aftermarket parts and continue to surprise with most creative builds. This holds true for many other kind of hobbyists, which is why our aim with this project is to standardize DIY visualization so that such cool pursuits continue to foster, with cool software to go with it.
 
-## Available Scripts
+# Stack used
+React is used for frontend and Go for backend. We are going to use MongoDB database.
 
-In the project directory, you can run:
+# Team Members
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+KRISHNA KIREETI RAYAPROLU- rayaprolu.k@ufl.edu- 6303-1300
+Srisharanya Injarapu- injarapu.s@ufl.edu- 7595-6698
+Harsh Soni- harshsoni@ufl.edu- 8983-9516
+Mayank Garg- gargm@ufl.edu- 5991-9115
