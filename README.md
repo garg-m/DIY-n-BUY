@@ -1,7 +1,7 @@
 # DIY-n-BUY
 
 
-Our application is a web application built using React.js and Go lang. It allows for hobbyists to visualize their DIY assembly of individual parts and provides a platform for ordering all those parts with a single click. The project will demonstrate this functionality using wristwatch assembly, but can be extended to serve visualizations of machine parts, circuit assembly, modern furniture etc. 
+Our application is a multi-layered web application that binds an frontend interface to a REST API. It allows for hobbyists to visualize their DIY assembly of individual parts and provides a platform for ordering all those parts with a single click. The project will demonstrate this functionality using wristwatch assembly, but can be extended to serve visualizations of machine parts, circuit assembly, modern furniture etc. 
 
 The hobbyist can create fresh builds, save those for future modifications, share them with fellow hobbyists, or continue to purchase the items used in the build. The builder tool accounts for compatibility, interoperability as well as availability of parts, along with summarizing the cost and ways of reducing it, for instance- notifying the hobbyist if any parts were purchased before. 
 
@@ -16,4 +16,4 @@ Mayank Garg- gargm@ufl.edu <br />
 
 
 # Stack 
-We are using React for the frontend and Go for the backend.
+We are using React for the frontend and GO for the Rest API. For the actual database, we will be using one of the No-SQL databases (TBD) to have more flexibility with the schema.
