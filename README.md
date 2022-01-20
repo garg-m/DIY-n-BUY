@@ -1,8 +1,8 @@
-# Project Overview
+## Project Overview
 
-# Members
+## Members
 
-# Architecture
+## Architecture
 
 # Getting Started with Create React App
 
