@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"encoding/json"
+	//	"encoding/json"
 	"fmt"
 	"log"
 	"strconv"
@@ -20,12 +20,15 @@ type MongoInstance struct {
 	Db     *mongo.Database
 }
 
-type Person struct {
-	_id       string `json:”id,omitempty”`
-	FirstName string `json:”firstname,omitempty”`
-	LastName  string `json:”lastname,omitempty”`
-	Email     string `json:”email,omitempty”`
-	Age       int    `json:”age,omitempty”`
+type CaseDB struct {
+	ID        string `json:"id,omitempty" bson:"_id,omitempty"`
+	Shape     string `json:"shape"`
+	Width     int    `json:"width"`
+	Dial_size int    `json:"dialsize"`
+	Material  string `json:"material"`
+	Finish    string `json:"finish"`
+	Movements string `json:"movements"`
+	Colour    string `json:"colour"`
 }
 
 var mg MongoInstance
@@ -91,7 +94,7 @@ func main() {
 
 	})
 
-	app.Post("/person", func(c *fiber.Ctx) error {
+	app.Post("/createDB", func(c *fiber.Ctx) error {
 
 		//collection, err := mg.Db.Collection(CollectionName)
 		//if err != nil {
@@ -99,19 +102,26 @@ func main() {
 		//	return
 		//}
 
-		var person Person
-		json.Unmarshal([]byte(c.Body()), &person)
+		casedb := new(CaseDB)
 
-		res, err := mg.Db.Collection("New_dummy").InsertOne(context.Background(), person)
+		if err := c.BodyParser(casedb); err != nil {
+			return c.Status(400).SendString(err.Error())
+		}
+
+		res, err := mg.Db.Collection("Case").InsertOne(c.Context(), casedb)
 		if err != nil {
 			return c.Status(500).SendString(err.Error())
 
 		}
 
-		response, _ := json.Marshal(res)
-		c.Send(response)
+		filter := bson.D{{Key: "_id", Value: res.InsertedID}}
+		personRecord := mg.Db.Collection("Case").FindOne(c.Context(), filter)
 
-		return c.Status(500).SendString(" ")
+		p := &CaseDB{}
+		personRecord.Decode(p)
+
+		return c.Status(201).JSON(p)
+
 	})
 
 	app.Listen(":3000")
