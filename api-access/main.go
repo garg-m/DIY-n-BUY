@@ -508,6 +508,53 @@ func main() {
 		return c.Status(201).JSON(createdHand)
 	})
 
+	app.Put("/updateData", func(c *fiber.Ctx) error {
+
+		idParam := c.Params("id")
+		employeeID, err := primitive.ObjectIDFromHex(idParam)
+
+		// the provided ID might be invalid ObjectID
+		if err != nil {
+			return c.SendStatus(400)
+		}
+
+		casedb := new(Case)
+		// Parse body into struct
+		if err := c.BodyParser(casedb); err != nil {
+			return c.Status(400).SendString(err.Error())
+		}
+
+		// Find the casedb and update its data
+		q := bson.D{{Key: "_id", Value: employeeID}}
+		update := bson.D{
+			{Key: "$set",
+				Value: bson.D{
+					{Key: "shape", Value: casedb.Shape},
+					{Key: "width", Value: casedb.Width},
+					{Key: "diealsize", Value: casedb.DialSize},
+					{Key: "material", Value: casedb.Material},
+					{Key: "finish", Value: casedb.Finish},
+					{Key: "movements", Value: casedb.Movement},
+					{Key: "colour", Value: casedb.Color},
+					{Key: "imagePath", Value: casedb.ImagePath},
+				},
+			},
+		}
+		err = mg.Db.Collection("New_dummy").FindOneAndUpdate(c.Context(), q, update).Err()
+
+		if err != nil {
+			// ErrNoDocuments means that the filter did not match any documents in the collection
+			if err == mongo.ErrNoDocuments {
+				return c.SendStatus(404)
+			}
+			return c.SendStatus(500)
+		}
+
+		// return the updated casedb
+		casedb.ID = idParam
+		return c.Status(200).JSON(casedb)
+	})
+
 	app.Listen(":3000")
 }
 
