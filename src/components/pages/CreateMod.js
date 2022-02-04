@@ -1,11 +1,13 @@
 import React from 'react';
+import Sidebar from '../Sidebar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const CreateMod = () => {
   return <>
-  <h1>Create Mod</h1>
-  <p>lorem 10
-      
-  </p>
+  
+   <Sidebar />  
+ 
+  
   </>;
 };
 
