@@ -63,6 +63,20 @@ type BezelInsert struct {
 	ImagePath     string  `json:"imagepath"`
 }
 
+type BezelRing struct {
+	ID                  string  `json:"id,omitempty" bson:"_id,omitempty"`
+	InnerDiameter       float32 `json:"innerdiameter"`
+	OuterDiameter       float32 `json:"outerdiameter"`
+	InnerInsertDiameter float32 `json:"innerinsertdiameter"`
+	OuterInsertDiameter float32 `json:"outerinsertdiameter"`
+	Type                string  `json:"type"`
+	Style               string  `json:"style"`
+	Material            string  `json:"material"`
+	Finish              string  `json:"finish"`
+	Color               string  `json:"color"`
+	ImagePath           string  `json:"imagepath"`
+}
+
 type ChapterRing struct {
 	ID        string `json:"id,omitempty" bson:"_id,omitempty"`
 	Type      string `json:"type"`
