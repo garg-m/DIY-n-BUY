@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"time"
 
@@ -520,13 +521,16 @@ func main() {
 		}
 
 		caseObj := new(Case)
+
 		// Parse body into struct
 		if err := c.BodyParser(caseObj); err != nil {
 			return c.Status(400).SendString(err.Error())
 		}
 
+		fmt.Println(caseId)
+
 		// Find the casedb and update its data
-		q := bson.D{{Key: "_id", Value: caseId}}
+		query := bson.D{{Key: "_id", Value: caseId}}
 		update := bson.D{
 			{Key: "$set",
 				Value: bson.D{
@@ -541,7 +545,7 @@ func main() {
 				},
 			},
 		}
-		err = mg.Db.Collection("cases").FindOneAndUpdate(c.Context(), q, update).Err()
+		err = mg.Db.Collection("cases").FindOneAndUpdate(c.Context(), query, update).Err()
 
 		if err != nil {
 			// ErrNoDocuments means that the filter did not match any documents in the collection
