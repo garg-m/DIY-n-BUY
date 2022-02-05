@@ -7,6 +7,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -508,39 +509,39 @@ func main() {
 		return c.Status(201).JSON(createdHand)
 	})
 
-	app.Put("/updateData", func(c *fiber.Ctx) error {
+	app.Put("/updateCase:id", func(c *fiber.Ctx) error {
 
 		idParam := c.Params("id")
-		employeeID, err := primitive.ObjectIDFromHex(idParam)
+		caseId, err := primitive.ObjectIDFromHex(idParam)
 
 		// the provided ID might be invalid ObjectID
 		if err != nil {
 			return c.SendStatus(400)
 		}
 
-		casedb := new(Case)
+		caseObj := new(Case)
 		// Parse body into struct
-		if err := c.BodyParser(casedb); err != nil {
+		if err := c.BodyParser(caseObj); err != nil {
 			return c.Status(400).SendString(err.Error())
 		}
 
 		// Find the casedb and update its data
-		q := bson.D{{Key: "_id", Value: employeeID}}
+		q := bson.D{{Key: "_id", Value: caseId}}
 		update := bson.D{
 			{Key: "$set",
 				Value: bson.D{
-					{Key: "shape", Value: casedb.Shape},
-					{Key: "width", Value: casedb.Width},
-					{Key: "dialsize", Value: casedb.DialSize},
-					{Key: "material", Value: casedb.Material},
-					{Key: "finish", Value: casedb.Finish},
-					{Key: "movements", Value: casedb.Movement},
-					{Key: "colour", Value: casedb.Color},
-					{Key: "imagePath", Value: casedb.ImagePath},
+					{Key: "shape", Value: caseObj.Shape},
+					{Key: "width", Value: caseObj.Width},
+					{Key: "dialsize", Value: caseObj.DialSize},
+					{Key: "material", Value: caseObj.Material},
+					{Key: "finish", Value: caseObj.Finish},
+					{Key: "movements", Value: caseObj.Movement},
+					{Key: "color", Value: caseObj.Color},
+					{Key: "imagepath", Value: caseObj.ImagePath},
 				},
 			},
 		}
-		err = mg.Db.Collection("New_dummy").FindOneAndUpdate(c.Context(), q, update).Err()
+		err = mg.Db.Collection("cases").FindOneAndUpdate(c.Context(), q, update).Err()
 
 		if err != nil {
 			// ErrNoDocuments means that the filter did not match any documents in the collection
@@ -551,8 +552,8 @@ func main() {
 		}
 
 		// return the updated casedb
-		casedb.ID = idParam
-		return c.Status(200).JSON(casedb)
+		caseObj.ID = idParam
+		return c.Status(200).JSON(caseObj)
 	})
 
 	app.Listen(":3000")
