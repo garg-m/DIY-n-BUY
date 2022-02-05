@@ -531,7 +531,7 @@ func main() {
 				Value: bson.D{
 					{Key: "shape", Value: casedb.Shape},
 					{Key: "width", Value: casedb.Width},
-					{Key: "diealsize", Value: casedb.DialSize},
+					{Key: "dialsize", Value: casedb.DialSize},
 					{Key: "material", Value: casedb.Material},
 					{Key: "finish", Value: casedb.Finish},
 					{Key: "movements", Value: casedb.Movement},
