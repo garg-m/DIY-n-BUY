@@ -1,94 +1,26 @@
-import React, { useState } from 'react';
-import { Button } from './Button';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
-import Dropdown from './Dropdown';
+import React from 'react';
+import {AppBar, Box, Toolbar, Typography, Button} from '@mui/material'
+import { NavLink } from 'react-router-dom';
 
-function Navbar() {
-    const [click, setClick] = useState(false);
-    const [dropdown, setDropdown] = useState(false);
-  
-    const handleClick = () => setClick(!click);
-    const closeMobileMenu = () => setClick(false);
-  
-    const onMouseEnter = () => {
-      if (window.innerWidth < 960) {
-        setDropdown(false);
-      } else {
-        setDropdown(true);
-      }
-    };
-  
-    const onMouseLeave = () => {
-      if (window.innerWidth < 960) {
-        setDropdown(false);
-      } else {
-        setDropdown(false);
-      }
-    };
-  
-    return (
-      <>
-        <nav className='navbar'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            DIY-n-BUY
-            <i class='fab fa-firstdraft' />
-          </Link>
-          <div className='menu-icon' onClick={handleClick}>
-            <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-          </div>
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-            <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-              Shop by Parts
-              </Link>
-            </li>
-            <li
-              className='nav-item'
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              <Link
-                to='/services'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Shop by Model <i className='fas fa-caret-down' />
-              </Link>
-              {dropdown && <Dropdown />}
-            </li>
-            <li className='nav-item'>
-              <Link
-                to='/products'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                New Products
-              </Link>
-            </li>
-            <li className='nav-item'>
-              <Link
-                to='/contact-us'
-                className='nav-links'
-                onClick={closeMobileMenu}
-              >
-                Limited Edition
-              </Link>
-            </li>
-            <li>
-              <Link
-                to='/sign-up'
-                className='nav-links-mobile'
-                onClick={closeMobileMenu}
-              >
-                Sign Up
-              </Link>
-            </li>
-          </ul>
-          <Button />
-        </nav>
-      </>
-    );
-  }
-  
-  export default Navbar;
+const Navbar = () => {
+  return <>
+  <Box sx={{flexGrow:1}}>
+      <AppBar position='absolute' color='secondary'>
+          <Toolbar>
+              <Typography variant='h5' component="div" sx={{flexGrow:1}}>
+              Diy-n-Buy
+              </Typography>
+              <Button component={NavLink} to='/' style={({isActive})=>{return {backgroundColor: isActive?'#6d1b7b':''}}} sx={{color:'white', textTransform:'none'}}>Home</Button>
+              <Button component={NavLink} to='/CreateMod' style={({isActive})=>{return {backgroundColor: isActive?'#6d1b7b':''}}} sx={{color:'white', textTransform:'none' }} >CreateMod</Button>
+              <Button component={NavLink} to='/LoginReg' style={({isActive})=>{return {backgroundColor: isActive?'#6d1b7b':''}}} sx={{color:'white',textTransform:'none' }} >Login/Register</Button>
+
+          </Toolbar>
+
+
+      </AppBar>
+
+  </Box>
+  </>;
+};
+
+export default Navbar;

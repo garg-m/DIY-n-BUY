@@ -1,29 +1,33 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import './App.css';
-import Home from './components/pages/Home';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Services from './components/pages/Services';
-import Products from './components/pages/Products';
-import ContactUs from './components/pages/ContactUs';
-import SignUp from './components/pages/SignUp';
-import Marketing from './components/pages/Marketing';
-import Consulting from './components/pages/Consulting';
+import Layout from "./components/pages/Layout";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Home from "./components/pages/Home";
+import CreateMod from "./components/pages/CreateMod";
+import LoginReg from "./components/pages/Auth/LoginReg";
+import ShopByParts from "./components/pages/MenuPages/ShopByParts";
+import ShopByModel from "./components/pages/MenuPages/ShopByModel";
+
+
+
 
 function App() {
   return (
-    <Router>
-      <Navbar />
+    
+      <>
+      <BrowserRouter>
       <Routes>
-        <Route path='/' exact component={Home} />
-        <Route path='/services' component={Services} />
-        <Route path='/products' component={Products} />
-        <Route path='/contact-us' component={ContactUs} />
-        <Route path='/sign-up' component={SignUp} />
-        <Route path='/marketing' component={Marketing} />
-        <Route path='/consulting' component={Consulting} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="CreateMod"  element={<CreateMod />} />
+          <Route path="LoginReg"  element={<LoginReg />} />
+          <Route path="ShopByParts" element={<ShopByParts />}/>
+          
+        </Route>
+        
       </Routes>
-    </Router>
+      </BrowserRouter>
+    </>
+    
+    
   );
 }
 
