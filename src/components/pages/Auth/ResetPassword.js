@@ -21,7 +21,7 @@ const ResetPassword = () => {
         document.getElementById('password-reset-form').reset()
         setError({ status: true, msg: "Password Reset Successfully. Redirecting to Login Page...", type: 'success' })
         setTimeout(() => {
-          navigate("/login")
+          navigate("LoginReg")
         }, 3000)
       } else {
         setError({ status: true, msg: "Password and Confirm Password Doesn't Match", type: 'error' })

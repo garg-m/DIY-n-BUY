@@ -5,6 +5,9 @@ import CreateMod from "./components/pages/CreateMod";
 import LoginReg from "./components/pages/Auth/LoginReg";
 import ShopByParts from "./components/pages/MenuPages/ShopByParts";
 import ShopByModel from "./components/pages/MenuPages/ShopByModel";
+import SendPasswordResetEmail from "./components/pages/Auth/sendPasswordResetEmail";
+import ResetPassword from "./components/pages/Auth/ResetPassword";
+import Dashboard from "./components/pages/Dashboard";
 
 
 
@@ -20,9 +23,15 @@ function App() {
           <Route path="CreateMod"  element={<CreateMod />} />
           <Route path="LoginReg"  element={<LoginReg />} />
           <Route path="ShopByParts" element={<ShopByParts />}/>
-          
+          <Route path="sendpasswordresetemail"  element={<SendPasswordResetEmail />} />
+          <Route path="reset"  element={<ResetPassword />} />
+
+
         </Route>
-        
+        <Route path="/dashboard"  element={<Dashboard />} />
+        <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
+
+
       </Routes>
       </BrowserRouter>
     </>

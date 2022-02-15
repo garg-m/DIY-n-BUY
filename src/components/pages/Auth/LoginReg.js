@@ -23,7 +23,7 @@ const LoginReg = () => {
         setValue(newValue)
     }
   return <>
-  <Grid container sx={{height:'90vh'}}>
+  <Grid container sx={{height:'110vh'}}>
       <Grid item lg={7} sm={5} sx={{
           backgroundImage:`url(${watch})`,
           backgroundRepeat:'no-repeat',
