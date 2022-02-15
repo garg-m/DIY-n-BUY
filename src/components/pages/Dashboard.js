@@ -6,7 +6,7 @@ const Dashboard = () => {
   const navigate = useNavigate()
   const handleLogout = () => {
     console.log("Logout Clicked");
-    navigate('/LoginReg')
+    navigate('LoginReg')
   }
   return <>
     <CssBaseline />
