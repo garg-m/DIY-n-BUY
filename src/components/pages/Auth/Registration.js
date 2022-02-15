@@ -20,15 +20,10 @@ const Registration = () => {
             tc: data.get('tc')
         }
         if(actualData.name && actualData.email && actualData.password && actualData.tc !==null){
-            if(actualData.password===actualData.password_confirmation){
-                console.log(actualData)
+            console.log(actualData)
             document.getElementById('registration-form').reset()
             setError({status:true, msg:'Registration Successful', type:'success'})
-            navigate('/dashboard')
-            }
-            else{
-                setError({status:true, msg:'Passwords do not match', type:'error'})
-            }
+            navigate('/')
         }
         else{
             setError({status:true, msg:'All Fields are required', type:'error'})
