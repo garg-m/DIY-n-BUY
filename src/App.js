@@ -8,7 +8,7 @@ import ShopByModel from "./components/pages/MenuPages/ShopByModel";
 import SendPasswordResetEmail from "./components/pages/Auth/sendPasswordResetEmail";
 import ResetPassword from "./components/pages/Auth/ResetPassword";
 import Dashboard from "./components/pages/Dashboard";
-
+import { BasicTable } from "./components/BasicTable";
 
 
 
@@ -23,7 +23,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="CreateMod"  element={<CreateMod />} />
           <Route path="LoginReg"  element={<LoginReg />} />
-          <Route path="ShopByParts" element={<ShopByParts />}/>
+          <Route path="ShopByParts" element={<BasicTable />}/>
           <Route path="sendpasswordresetemail"  element={<SendPasswordResetEmail />} />
           <Route path="reset"  element={<ResetPassword />} />
 
