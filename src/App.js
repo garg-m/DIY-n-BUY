@@ -9,6 +9,7 @@ import SendPasswordResetEmail from "./components/pages/Auth/sendPasswordResetEma
 import ResetPassword from "./components/pages/Auth/ResetPassword";
 import Dashboard from "./components/pages/Dashboard";
 import { BasicTable } from "./components/BasicTable";
+import { sortingTable } from "./components/sortingTable";
 
 
 
