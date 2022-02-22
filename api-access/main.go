@@ -522,7 +522,7 @@ func main() {
 		// return the created Employee in JSON format
 		return c.Status(201).JSON(createdHand)
 	})
-
+	// Update the data
 	app.Put("/updateCase/:id", func(c *fiber.Ctx) error {
 
 		idParam := c.Params("id")
