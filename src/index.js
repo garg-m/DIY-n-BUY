@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import registerServiceWorker from './registerServiceWorker';
+import ShopByModel from './components/pages/MenuPages/ShopByModel'
 import App from './App';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -9,5 +11,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-
