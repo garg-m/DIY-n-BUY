@@ -166,7 +166,20 @@ func main() {
 
 	app.Get("/", func(c *fiber.Ctx) error {
 
-		return c.SendString("Hello, World!")
+		query := bson.D{{}}
+
+		cursor, err := mg.Db.Collection("cases").Find(c.Context(), query)
+		if err != nil {
+			return c.Status(500).SendString(err.Error())
+		}
+
+		var cas []Case = make([]Case, 0)
+
+		if err := cursor.All(c.Context(), &cas); err != nil {
+			return c.Status(500).SendString(err.Error())
+		}
+
+		return c.JSON(cas)
 	})
 
 	app.Post("/case", func(c *fiber.Ctx) error {
@@ -509,8 +522,8 @@ func main() {
 		// return the created Employee in JSON format
 		return c.Status(201).JSON(createdHand)
 	})
-
-	app.Put("/updateCase:id", func(c *fiber.Ctx) error {
+	// Update the data
+	app.Put("/updateCase/:id", func(c *fiber.Ctx) error {
 
 		idParam := c.Params("id")
 		caseId, err := primitive.ObjectIDFromHex(idParam)
@@ -559,22 +572,85 @@ func main() {
 		caseObj.ID = idParam
 		return c.Status(200).JSON(caseObj)
 	})
+	app.Delete("/deleteCase/:id", func(c *fiber.Ctx) error {
 
+		CaseID, err := primitive.ObjectIDFromHex(c.Params("id"))
+		if err != nil {
+			return c.SendStatus(400)
+		}
+
+		query := bson.D{{Key: "_id", Value: CaseID}}
+		result, err := mg.Db.Collection("cases").DeleteOne(c.Context(), &query)
+		if err != nil {
+			return c.SendStatus(500)
+		}
+
+		if result.DeletedCount < 1 {
+			return c.SendStatus(404)
+		}
+
+		return c.Status(200).JSON("record deleted")
+
+	})
+	app.Delete("/deleteMovements/:id", func(c *fiber.Ctx) error {
+
+		CaseID, err := primitive.ObjectIDFromHex(c.Params("id"))
+		if err != nil {
+			return c.SendStatus(400)
+		}
+
+		query := bson.D{{Key: "_id", Value: CaseID}}
+		result, err := mg.Db.Collection("movements").DeleteOne(c.Context(), &query)
+		if err != nil {
+			return c.SendStatus(500)
+		}
+
+		if result.DeletedCount < 1 {
+			return c.SendStatus(404)
+		}
+
+		return c.Status(200).JSON("record deleted")
+
+	})
+	app.Delete("/deleteChapterring/:id", func(c *fiber.Ctx) error {
+
+		CaseID, err := primitive.ObjectIDFromHex(c.Params("id"))
+		if err != nil {
+			return c.SendStatus(400)
+		}
+
+		query := bson.D{{Key: "_id", Value: CaseID}}
+		result, err := mg.Db.Collection("chapterRings").DeleteOne(c.Context(), &query)
+		if err != nil {
+			return c.SendStatus(500)
+		}
+
+		if result.DeletedCount < 1 {
+			return c.SendStatus(404)
+		}
+
+		return c.Status(200).JSON("record deleted")
+
+	})
+	app.Delete("/deleteStrap/:id", func(c *fiber.Ctx) error {
+
+		CaseID, err := primitive.ObjectIDFromHex(c.Params("id"))
+		if err != nil {
+			return c.SendStatus(400)
+		}
+
+		query := bson.D{{Key: "_id", Value: CaseID}}
+		result, err := mg.Db.Collection("straps").DeleteOne(c.Context(), &query)
+		if err != nil {
+			return c.SendStatus(500)
+		}
+
+		if result.DeletedCount < 1 {
+			return c.SendStatus(404)
+		}
+
+		return c.Status(200).JSON("record deleted")
+
+	})
 	app.Listen(":3000")
 }
-
-//Junk
-// app.Get("/datacount", func(c *fiber.Ctx) error {
-
-// 	filter := bson.D{{}}
-// 	count, err := mg.Db.Collection("data").CountDocuments(context.TODO(), filter)
-// 	if err != nil {
-// 		return c.Status(500).SendString(err.Error())
-// 	}
-
-// 	result := strconv.FormatInt(count, 10)
-// 	fmt.Println(result)
-
-// 	return c.Status(500).SendString(result)
-
-// })

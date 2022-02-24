@@ -1,19 +1,83 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Select from 'react-select';
+import './style.css'
 
-const ShopByModel = () => {
-    return <>
-  <h1> Home </h1>
-  <hr />
-  <p>Shop By Model</p>
-  <img src='https://usa.crystaltimes.net/wp-content/uploads/2020/07/CT684-768x768.jpg' height="500px"/>
-  <img src='https://usa.crystaltimes.net/wp-content/uploads/2019/09/CT233-scaled-500x500.jpg' height="500px"/>
-  <img src='https://usa.crystaltimes.net/wp-content/uploads/2019/08/CT231-Polished-768x768.jpg'height="500px"/>
-  <img src='https://usa.crystaltimes.net/wp-content/uploads/2020/08/CT713-2-768x768.jpg' height="500px"/>
-  <img src='https://usa.crystaltimes.net/wp-content/uploads/2018/01/CT500-768x768.jpg'height="500px"/>
-  <img src='https://usa.crystaltimes.net/wp-content/uploads/2019/05/CT800-768x768.jpg'height="500px"/>
-  
-  
-  </>;
-};
+function ShopByModel() {
+  const data = [
+    {
+      value: 1,
+      label: "Cases"
+    },
+    {
+      value: 2,
+      label: "Case Back"
+    },
+    {
+      value: 3,
+      label: "Movements"
+    },
+    {
+      value: 4,
+      label: "Bezels"
+    },
+    {
+      value: 5,
+      label: "Bezel Inserts"
+    },
+    {
+      value: 6,
+      label: "Chapter Rings"
+    },
+    {
+      value: 7,
+      label: "Crowns"
+    },
+    {
+      value: 8,
+      label: "Hands"
+    },
+    {
+      value: 9,
+      label: "Dials"
+    },
+    {
+      value: 10,
+      label: "Straps/Bracelets"
+    },
+    {
+      value: 11,
+      label: "Tools"
+    },
+    {
+      value: 12,
+      label: "Gaskets"
+    }
+  ];
+
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  // handle onChange event of the dropdown
+  const handleChange = e => {
+    setSelectedOption(e);
+  }
+
+  return (
+    <div className="App">
+
+      <Select
+        placeholder="Select Part"
+        value={selectedOption} // set selected value
+        options={data} // set list of the data
+        onChange={handleChange} // assign onChange function
+      />
+
+      {selectedOption && <div style={{ marginTop: 20, lineHeight: '25px' }}>
+        <b>Selected Option</b><br />
+        <div style={{ marginTop: 10 }}><b>Label: </b> {selectedOption.label}</div>
+        <div><b>Value: </b> {selectedOption.value}</div>
+      </div>}
+    </div>
+  );
+}
 
 export default ShopByModel;
