@@ -10,8 +10,7 @@ import ResetPassword from "./components/pages/Auth/ResetPassword";
 import Dashboard from "./components/pages/Dashboard";
 import { BasicTable } from "./components/BasicTable";
 import { sortingTable } from "./components/sortingTable";
-import registerServiceWorker from './registerServiceWorker';
-
+import { PaginationTable } from "./components/PaginationTable"
 
 
 
@@ -26,7 +25,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="CreateMod"  element={<CreateMod />} />
           <Route path="LoginReg"  element={<LoginReg />} />
-          <Route path="ShopByParts" element={<BasicTable />}/>
+          <Route path="ShopByParts" element={<PaginationTable />}/>
           <Route path="ShopByModel" element={<ShopByModel />}/>
 
           <Route path="sendpasswordresetemail"  element={<SendPasswordResetEmail />} />
