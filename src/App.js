@@ -11,6 +11,9 @@ import Dashboard from "./components/pages/Dashboard";
 import { BasicTable } from "./components/BasicTable";
 import { sortingTable } from "./components/sortingTable";
 import { PaginationTable } from "./components/PaginationTable"
+import NewProducts from "./components/NewProducts";
+import { RowSelection } from "./components/RowSelection";
+
 
 
 
@@ -25,8 +28,9 @@ function App() {
           <Route index element={<Home />} />
           <Route path="CreateMod"  element={<CreateMod />} />
           <Route path="LoginReg"  element={<LoginReg />} />
-          <Route path="ShopByParts" element={<PaginationTable />}/>
+          <Route path="ShopByParts" element={<RowSelection />}/>
           <Route path="ShopByModel" element={<ShopByModel />}/>
+          <Route path="NewProducts" element={<NewProducts />}/>
 
           <Route path="sendpasswordresetemail"  element={<SendPasswordResetEmail />} />
           <Route path="reset"  element={<ResetPassword />} />
