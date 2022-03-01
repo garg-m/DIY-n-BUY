@@ -13,7 +13,7 @@ import { sortingTable } from "./components/sortingTable";
 import { PaginationTable } from "./components/PaginationTable"
 import NewProducts from "./components/NewProducts";
 import { RowSelection } from "./components/RowSelection";
-
+import {SimpleDropdownMenu} from "./components/SimpleDropdownMenu"
 
 
 
