@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 import { useState } from "react";
 import Select from 'react-select';
 import { RowSelection } from "../../RowSelection";
+import { tableMovements } from "../../tableMovements";
 
 
   
@@ -108,7 +109,7 @@ export default class ShopByModel extends Component{
               
                 />
                 
-                <h1>Hello Kireeti</h1>
+                <tableMovements />
                 </div>)
         }
        
