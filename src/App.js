@@ -14,6 +14,7 @@ import { PaginationTable } from "./components/PaginationTable"
 import NewProducts from "./components/NewProducts";
 import { RowSelection } from "./components/RowSelection";
 import {SimpleDropdownMenu} from "./components/SimpleDropdownMenu"
+import { TableMovements } from "./components/tableMovements";
 
 
 
@@ -28,7 +29,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="CreateMod"  element={<CreateMod />} />
           <Route path="LoginReg"  element={<LoginReg />} />
-          <Route path="ShopByParts" element={<RowSelection />}/>
+          <Route path="ShopByParts" element={<TableMovements />}/>
           <Route path="ShopByModel" element={<ShopByModel />}/>
           <Route path="NewProducts" element={<NewProducts />}/>
 
