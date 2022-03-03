@@ -30,16 +30,16 @@ func TestIndexRoute(t *testing.T) {
 		expectedBody  string
 	}{
 		{
-			description:   "index route",
+			description:   "test connection",
 			route:         "/",
 			requestType:   "GET",
 			requestBody:   nil,
 			expectedError: false,
 			expectedCode:  200,
-			expectedBody:  "\"OK\"",
+			expectedBody:  "OK",
 		},
 		{
-			description: "index route",
+			description: "create a part",
 			route:       "/create/cases/",
 			requestType: "POST",
 			requestBody: []byte(`{
@@ -53,8 +53,35 @@ func TestIndexRoute(t *testing.T) {
 				"imagepath": "dumbolumbojumboxyz"
 			}`),
 			expectedError: false,
-			expectedCode:  201,
-			expectedBody:  "\"record added\"",
+			expectedCode:  200,
+			expectedBody:  "record added",
+		},
+		{
+			description: "update a part",
+			route:       "/update/cases/6221372ab783030bc4d185a9",
+			requestType: "PUT",
+			requestBody: []byte(`{
+				"shape": "Round",
+				"width": 40,
+				"dialsize": 38,
+				"material": "Titanium",
+				"finish": "Brushed",
+				"movement": "True GMT",
+				"color": "Black",
+				"imagepath": "dumbolumbojumboxyz"
+			}`),
+			expectedError: false,
+			expectedCode:  200,
+			expectedBody:  "record updated",
+		},
+		{
+			description:   "delete a part",
+			route:         "/delete/cases/62213689dfe0cb45d73842e1",
+			requestType:   "DELETE",
+			requestBody:   nil,
+			expectedError: false,
+			expectedCode:  200,
+			expectedBody:  "record deleted",
 		},
 	}
 
