@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"io/ioutil"
 	"net/http"
 	"testing"
@@ -19,25 +20,42 @@ func TestIndexRoute(t *testing.T) {
 		// Test input
 		route string
 
+		// Request Type and Info
+		requestType string
+		requestBody []byte
+
 		// Expected output
 		expectedError bool
 		expectedCode  int
 		expectedBody  string
 	}{
 		{
-			description:   "connection test route",
+			description:   "index route",
 			route:         "/",
+			requestType:   "GET",
+			requestBody:   nil,
 			expectedError: false,
 			expectedCode:  200,
 			expectedBody:  "\"OK\"",
 		},
-		// {
-		// 	description:   "get specific case route",
-		// 	route:         "/getAllCases",
-		// 	expectedError: false,
-		// 	expectedCode:  200,
-		// 	expectedBody:  "",
-		// },
+		{
+			description: "index route",
+			route:       "/create/cases/",
+			requestType: "POST",
+			requestBody: []byte(`{
+				"shape": "Round",
+				"width": 40,
+				"dialsize": 38,
+				"material": "Titanium",
+				"finish": "Brushed",
+				"movement": "True GMT",
+				"color": "Black",
+				"imagepath": "dumbolumbojumboxyz"
+			}`),
+			expectedError: false,
+			expectedCode:  201,
+			expectedBody:  "\"record added\"",
+		},
 	}
 
 	// Setup the app as it is done in the main function
@@ -47,11 +65,14 @@ func TestIndexRoute(t *testing.T) {
 	for _, test := range tests {
 		// Create a new http request with the route
 		// from the test case
+
 		req, _ := http.NewRequest(
-			"GET",
+			test.requestType,
 			test.route,
-			nil,
+			bytes.NewBuffer(test.requestBody),
 		)
+
+		req.Header.Set("Content-Type", "application/json; charset=UTF-8")
 
 		// Perform the request plain with the app.
 		// The -1 disables request latency.
