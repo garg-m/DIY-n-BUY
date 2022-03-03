@@ -1,9 +1,7 @@
 package main
 
 import (
-	Models "api-access/models"
 	"context"
-	"fmt"
 	"log"
 	"time"
 
@@ -65,28 +63,10 @@ func Setup() *fiber.App {
 		return c.JSON("OK")
 	})
 
-	app.Get("/getCases", func(c *fiber.Ctx) error {
-
-		query := bson.D{{}}
-
-		cursor, err := mg.Db.Collection("cases").Find(c.Context(), query)
-		if err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		var cas []Models.Case = make([]Models.Case, 0)
-
-		if err := cursor.All(c.Context(), &cas); err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		return c.JSON(cas)
-	})
-
 	app.Get("/getAll/:part", func(c *fiber.Ctx) error {
 
 		partName := c.Params("part")
-		fmt.Println(partName)
+		//fmt.Println(partName)
 
 		query := bson.D{{}}
 
@@ -124,7 +104,7 @@ func Setup() *fiber.App {
 			return c.Status(500).SendString(err.Error())
 		}
 
-		fmt.Println(partObj)
+		//fmt.Println(partObj)
 
 		// get the just inserted record in order to return it as response
 		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
@@ -135,7 +115,8 @@ func Setup() *fiber.App {
 		createdRecord.Decode(createdObj)
 
 		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdObj)
+		//return c.Status(201).JSON(createdObj)
+		return c.Status(201).JSON("record added")
 	})
 
 	app.Put("/update/:part/:id", func(c *fiber.Ctx) error {
@@ -159,7 +140,7 @@ func Setup() *fiber.App {
 			return c.Status(400).SendString(err.Error())
 		}
 
-		fmt.Println(partId)
+		//fmt.Println(partId)
 
 		// Find the casedb and update its data
 		query := bson.D{{Key: "_id", Value: partId}}
