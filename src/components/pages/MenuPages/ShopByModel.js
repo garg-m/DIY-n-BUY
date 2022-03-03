@@ -3,8 +3,16 @@ import { render } from '@testing-library/react';
 import { useState } from "react";
 import Select from 'react-select';
 import { RowSelection } from "../../RowSelection";
-import { tableMovements } from "../../tableMovements";
-
+import { TableMovements } from "../../TableMovements";
+import { TableCase } from "../../TableCase";
+import { TableCrystal } from "../../TableCrystal"
+import { TableCrown } from "../../TableCrown";
+import { TableBezelRing } from "../../TableBezelRing";
+import { TableBezelInsert } from "../../TableBezelInsert";
+import { TableChapterRing } from "../../TableChapterRing";
+import { TableDial } from "../../TableDial";
+import { TableStrap } from "../../TableStrap";
+import { TableHand } from "../../TableHand";
 
   
 
@@ -18,7 +26,7 @@ export default class ShopByModel extends Component{
          this.data = [
         {
           value: 1,
-          label: "Cases"
+          label: "Case"
         },
         {
           value: 2,
@@ -30,47 +38,43 @@ export default class ShopByModel extends Component{
         },
         {
           value: 4,
-          label: "Bezels"
+          label: "Crystal"
         },
         {
           value: 5,
-          label: "Bezel Inserts"
+          label: "Crown"
         },
         {
           value: 6,
-          label: "Chapter Rings"
+          label: "BezelRing"
         },
         {
           value: 7,
-          label: "Crowns"
+          label: "BezelInsert"
         },
         {
           value: 8,
-          label: "Hands"
+          label: "ChapterRing"
         },
         {
           value: 9,
-          label: "Dials"
+          label: "Dial"
         },
         {
           value: 10,
-          label: "Straps/Bracelets"
+          label: "Strap"
         },
         {
           value: 11,
-          label: "Tools"
-        },
-        {
-          value: 12,
-          label: "Gaskets"
+          label: "Hand"
         }
     ]
     
         this.state={
             
             selectedValue: {
-                value: 12,
-                label: "Gaskets"
+                value: 1,
+                label: "Case"
               }
               
         }
@@ -82,7 +86,7 @@ export default class ShopByModel extends Component{
     render(){
        
         
-        if(this.state.selectedValue.value==12){
+        if(this.state.selectedValue.value==2){
             return(
             
                 <div>
@@ -99,6 +103,151 @@ export default class ShopByModel extends Component{
             )
 
         }
+        else if(this.state.selectedValue.value==1){
+          return(
+            
+            <div>
+                <h1>Hello World</h1>
+           <Select
+           options={this.data}
+           value={this.state.selectedValue}
+           onChange={this.handleChange}
+           
+          
+            />
+            <TableCase />
+            </div>
+        )
+        }
+        else if(this.state.selectedValue.value==4){
+          return(
+            
+            <div>
+                <h1>Hello World</h1>
+           <Select
+           options={this.data}
+           value={this.state.selectedValue}
+           onChange={this.handleChange}
+           
+          
+            />
+            <TableCrystal />
+            </div>
+        )
+        }
+        else if(this.state.selectedValue.value==5){
+          return(
+            
+            <div>
+                <h1>Hello World</h1>
+           <Select
+           options={this.data}
+           value={this.state.selectedValue}
+           onChange={this.handleChange}
+           
+          
+            />
+            <TableCrown />
+            </div>
+        )
+        }
+        else if(this.state.selectedValue.value==6){
+          return(
+            
+            <div>
+                <h1>Hello World</h1>
+           <Select
+           options={this.data}
+           value={this.state.selectedValue}
+           onChange={this.handleChange}
+           
+          
+            />
+            <TableBezelRing />
+            </div>
+        )
+        }
+        else if(this.state.selectedValue.value==7){
+          return(
+            
+            <div>
+                <h1>Hello World</h1>
+           <Select
+           options={this.data}
+           value={this.state.selectedValue}
+           onChange={this.handleChange}
+           
+          
+            />
+            <TableBezelInsert />
+            </div>
+        )
+        }
+        else if(this.state.selectedValue.value==8){
+          return(
+            
+            <div>
+                <h1>Hello World</h1>
+           <Select
+           options={this.data}
+           value={this.state.selectedValue}
+           onChange={this.handleChange}
+           
+          
+            />
+            <TableChapterRing />
+            </div>
+        )
+        }
+        else if(this.state.selectedValue.value==9){
+          return(
+            
+            <div>
+                <h1>Hello World</h1>
+           <Select
+           options={this.data}
+           value={this.state.selectedValue}
+           onChange={this.handleChange}
+           
+          
+            />
+            <TableDial />
+            </div>
+        )
+        }
+        else if(this.state.selectedValue.value==10){
+          return(
+            
+            <div>
+                <h1>Hello World</h1>
+           <Select
+           options={this.data}
+           value={this.state.selectedValue}
+           onChange={this.handleChange}
+           
+          
+            />
+            <TableStrap />
+            </div>
+        )
+        }
+        else if(this.state.selectedValue.value==11){
+          return(
+            
+            <div>
+                <h1>Hello World</h1>
+           <Select
+           options={this.data}
+           value={this.state.selectedValue}
+           onChange={this.handleChange}
+           
+          
+            />
+            <TableHand />
+            </div>
+        )
+        }
+
         else{
             return(<div>
                 <Select
@@ -109,7 +258,7 @@ export default class ShopByModel extends Component{
               
                 />
                 
-                <tableMovements />
+                <TableMovements />
                 </div>)
         }
        
