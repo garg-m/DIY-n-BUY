@@ -60,7 +60,7 @@ func Setup() *fiber.App {
 	app := fiber.New()
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.JSON("OK")
+		return c.SendString("OK")
 	})
 
 	app.Get("/getAll/:part", func(c *fiber.Ctx) error {
@@ -116,7 +116,7 @@ func Setup() *fiber.App {
 
 		// return the created Employee in JSON format
 		//return c.Status(201).JSON(createdObj)
-		return c.Status(201).JSON("record added")
+		return c.Status(200).SendString("record added")
 	})
 
 	app.Put("/update/:part/:id", func(c *fiber.Ctx) error {
@@ -160,7 +160,7 @@ func Setup() *fiber.App {
 		}
 
 		// return the updated casedb
-		return c.Status(200).JSON(idParam)
+		return c.Status(200).SendString("record updated")
 	})
 
 	app.Delete("/delete/:part/:id", func(c *fiber.Ctx) error {
@@ -180,7 +180,7 @@ func Setup() *fiber.App {
 			return c.SendStatus(404)
 		}
 
-		return c.Status(200).JSON("record deleted")
+		return c.Status(200).SendString("record deleted")
 
 	})
 
