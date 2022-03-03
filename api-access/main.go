@@ -1,6 +1,7 @@
 package main
 
 import (
+	Models "api-access/models"
 	"context"
 	"fmt"
 	"log"
@@ -21,7 +22,14 @@ type MongoInstance struct {
 var mg MongoInstance
 
 const dbName = "watchmod_inventory"
-const mongoURI = "mongodb+srv://diy-n-buy:xuCRbizpdhOI3pAF@cluster0.fwokq.mongodb.net/sample_weatherdata?retryWrites=true&w=majority"
+const mongoURI = "mongodb+srv://diy-n-buy:xuCRbizpdhOI3pAF@cluster0.fwokq.mongodb.net/" + dbName
+
+//?retryWrites=true&w=majority
+
+func main() {
+	app := Setup()
+	log.Fatal(app.Listen(":3000"))
+}
 
 func Connect() error {
 	client, err := mongo.NewClient(options.Client().ApplyURI(mongoURI))
@@ -44,118 +52,7 @@ func Connect() error {
 	return nil
 }
 
-type Case struct {
-	ID        string  `json:"id,omitempty" bson:"_id,omitempty"`
-	Shape     string  `json:"shape"`
-	Width     float32 `json:"width"`
-	DialSize  float32 `json:"dialsize"`
-	Material  string  `json:"material"`
-	Finish    string  `json:"finish"`
-	Movement  string  `json:"movements"`
-	Color     string  `json:"color"`
-	ImagePath string  `json:"imagepath"`
-}
-
-type CaseBack struct {
-	ID          string `json:"id,omitempty" bson:"_id,omitempty"`
-	Material    string `json:"material`
-	Finish      string `json:"material`
-	Inscription string `json:"inscription"`
-	ImagePath   string `json:"imagepath"`
-}
-
-type Movement struct {
-	ID        string `json:"id,omitempty" bson:"_id,omitempty"`
-	Frequency int    `json:"frequency"`
-	ImagePath string `json:"imagepath"`
-}
-
-type Crystal struct {
-	ID         string  `json:"id,omitempty" bson:"_id,omitempty"`
-	Material   string  `json:"material`
-	DomeHeight float32 `json:"domeheight"`
-	Cyclops    bool    `json:"cyclops"`
-	ImagePath  string  `json:"imagepath"`
-}
-
-type Crown struct {
-	ID        string `json:"id,omitempty" bson:"_id,omitempty"`
-	Type      string `json:"type"`
-	Movement  string `json:"movement"`
-	Material  string `json:"material`
-	Finish    string `json:"material`
-	Color     string `json:"color"`
-	ImagePath string `json:"imagepath"`
-}
-
-type BezelRing struct {
-	ID                  string  `json:"id,omitempty" bson:"_id,omitempty"`
-	InnerDiameter       float32 `json:"innerdiameter"`
-	OuterDiameter       float32 `json:"outerdiameter"`
-	InnerInsertDiameter float32 `json:"innerinsertdiameter"`
-	OuterInsertDiameter float32 `json:"outerinsertdiameter"`
-	Type                string  `json:"type"`
-	Style               string  `json:"style"`
-	Material            string  `json:"material"`
-	Finish              string  `json:"finish"`
-	Color               string  `json:"color"`
-	ImagePath           string  `json:"imagepath"`
-}
-
-type BezelInsert struct {
-	ID            string  `json:"id,omitempty" bson:"_id,omitempty"`
-	InnerDiameter float32 `json:"innerdiameter"`
-	OuterDiameter float32 `json:"outerdiameter"`
-	Type          string  `json:"type"`
-	Style         string  `json:"style"`
-	Material      string  `json:"material"`
-	Finish        string  `json:"finish"`
-	Color         string  `json:"color"`
-	ImagePath     string  `json:"imagepath"`
-}
-
-type ChapterRing struct {
-	ID        string `json:"id,omitempty" bson:"_id,omitempty"`
-	Type      string `json:"type"`
-	Style     string `json:"style"`
-	Material  string `json:"material"`
-	Finish    string `json:"finish"`
-	Color     string `json:"color"`
-	ImagePath string `json:"imagepath"`
-}
-
-type Dial struct {
-	ID        string `json:"id,omitempty" bson:"_id,omitempty"`
-	Type      string `json:"type"`
-	Style     string `json:"style"`
-	Material  string `json:"material"`
-	Finish    string `json:"finish"`
-	Color     string `json:"color"`
-	ImagePath string `json:"imagepath"`
-}
-
-type Strap struct {
-	ID        string `json:"id,omitempty" bson:"_id,omitempty"`
-	Type      string `json:"type"`
-	Style     string `json:"style"`
-	Material  string `json:"material"`
-	Finish    string `json:"finish"`
-	Color     string `json:"color"`
-	ImagePath string `json:"imagepath"`
-}
-
-type Hand struct {
-	ID        string `json:"id,omitempty" bson:"_id,omitempty"`
-	Type      string `json:"type"`
-	Style     string `json:"style"`
-	Material  string `json:"material"`
-	Finish    string `json:"finish"`
-	Color     string `json:"color"`
-	ImagePath string `json:"imagepath"`
-}
-
-func main() {
-
+func Setup() *fiber.App {
 	// Connect to the database
 	if err := Connect(); err != nil {
 		log.Fatal(err)
@@ -165,6 +62,10 @@ func main() {
 	app := fiber.New()
 
 	app.Get("/", func(c *fiber.Ctx) error {
+		return c.JSON("OK")
+	})
+
+	app.Get("/getCases", func(c *fiber.Ctx) error {
 
 		query := bson.D{{}}
 
@@ -173,7 +74,7 @@ func main() {
 			return c.Status(500).SendString(err.Error())
 		}
 
-		var cas []Case = make([]Case, 0)
+		var cas []Models.Case = make([]Models.Case, 0)
 
 		if err := cursor.All(c.Context(), &cas); err != nil {
 			return c.Status(500).SendString(err.Error())
@@ -182,383 +83,92 @@ func main() {
 		return c.JSON(cas)
 	})
 
-	app.Post("/case", func(c *fiber.Ctx) error {
-		collection := mg.Db.Collection("cases")
+	app.Get("/getAll/:part", func(c *fiber.Ctx) error {
 
-		// New Employee struct
-		caseObj := new(Case)
-		// Parse body into struct
-		if err := c.BodyParser(caseObj); err != nil {
-			return c.Status(400).SendString(err.Error())
-		}
+		partName := c.Params("part")
+		fmt.Println(partName)
 
-		// force MongoDB to always set its own generated ObjectIDs
-		caseObj.ID = ""
+		query := bson.D{{}}
 
-		// insert the record
-		insertionResult, err := collection.InsertOne(c.Context(), caseObj)
+		cursor, err := mg.Db.Collection(partName).Find(c.Context(), query)
 		if err != nil {
 			return c.Status(500).SendString(err.Error())
 		}
+
+		var parts []bson.M
+
+		if err := cursor.All(c.Context(), &parts); err != nil {
+			return c.Status(500).SendString(err.Error())
+		}
+
+		return c.JSON(parts)
+	})
+
+	app.Post("/create/:part", func(c *fiber.Ctx) error {
+
+		partName := c.Params("part")
+
+		collection := mg.Db.Collection(partName)
+
+		// New part struct
+		partObj := make(bson.M)
+
+		// Parse body into struct
+		if err := c.BodyParser(&partObj); err != nil {
+			return c.Status(400).SendString(err.Error())
+		}
+
+		// insert the record
+		insertionResult, err := collection.InsertOne(c.Context(), partObj)
+		if err != nil {
+			return c.Status(500).SendString(err.Error())
+		}
+
+		fmt.Println(partObj)
 
 		// get the just inserted record in order to return it as response
 		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
 		createdRecord := collection.FindOne(c.Context(), filter)
 
-		// decode the Mongo record into Employee
-		createdCase := &Case{}
-		createdRecord.Decode(createdCase)
+		// decode the Mongo record into Obj
+		createdObj := &bson.M{}
+		createdRecord.Decode(createdObj)
 
 		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdCase)
+		return c.Status(201).JSON(createdObj)
 	})
 
-	app.Post("/caseback", func(c *fiber.Ctx) error {
-		collection := mg.Db.Collection("casebacks")
-
-		// New Employee struct
-		caseBackObj := new(CaseBack)
-		// Parse body into struct
-		if err := c.BodyParser(caseBackObj); err != nil {
-			return c.Status(400).SendString(err.Error())
-		}
-
-		// force MongoDB to always set its own generated ObjectIDs
-		caseBackObj.ID = ""
-
-		// insert the record
-		insertionResult, err := collection.InsertOne(c.Context(), caseBackObj)
-		if err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		// get the just inserted record in order to return it as response
-		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
-		createdRecord := collection.FindOne(c.Context(), filter)
-
-		// decode the Mongo record into Employee
-		createdCaseBack := &CaseBack{}
-		createdRecord.Decode(createdCaseBack)
-
-		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdCaseBack)
-	})
-
-	app.Post("/movement", func(c *fiber.Ctx) error {
-		collection := mg.Db.Collection("movements")
-
-		// New Employee struct
-		movementObj := new(Movement)
-		// Parse body into struct
-		if err := c.BodyParser(movementObj); err != nil {
-			return c.Status(400).SendString(err.Error())
-		}
-
-		// force MongoDB to always set its own generated ObjectIDs
-		movementObj.ID = ""
-
-		// insert the record
-		insertionResult, err := collection.InsertOne(c.Context(), movementObj)
-		if err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		// get the just inserted record in order to return it as response
-		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
-		createdRecord := collection.FindOne(c.Context(), filter)
-
-		// decode the Mongo record into Employee
-		createdMovement := &Movement{}
-		createdRecord.Decode(createdMovement)
-
-		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdMovement)
-	})
-
-	app.Post("/crystal", func(c *fiber.Ctx) error {
-		collection := mg.Db.Collection("crystals")
-
-		// New Employee struct
-		crystalObj := new(Crystal)
-		// Parse body into struct
-		if err := c.BodyParser(crystalObj); err != nil {
-			return c.Status(400).SendString(err.Error())
-		}
-
-		// force MongoDB to always set its own generated ObjectIDs
-		crystalObj.ID = ""
-
-		// insert the record
-		insertionResult, err := collection.InsertOne(c.Context(), crystalObj)
-		if err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		// get the just inserted record in order to return it as response
-		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
-		createdRecord := collection.FindOne(c.Context(), filter)
-
-		// decode the Mongo record into Employee
-		createdCrystal := &Crystal{}
-		createdRecord.Decode(createdCrystal)
-
-		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdCrystal)
-	})
-
-	app.Post("/crown", func(c *fiber.Ctx) error {
-		collection := mg.Db.Collection("crowns")
-
-		// New Employee struct
-		crownObj := new(Crown)
-		// Parse body into struct
-		if err := c.BodyParser(crownObj); err != nil {
-			return c.Status(400).SendString(err.Error())
-		}
-
-		// force MongoDB to always set its own generated ObjectIDs
-		crownObj.ID = ""
-
-		// insert the record
-		insertionResult, err := collection.InsertOne(c.Context(), crownObj)
-		if err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		// get the just inserted record in order to return it as response
-		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
-		createdRecord := collection.FindOne(c.Context(), filter)
-
-		// decode the Mongo record into Employee
-		createdCrown := &Crown{}
-		createdRecord.Decode(createdCrown)
-
-		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdCrown)
-	})
-
-	app.Post("/bezelring", func(c *fiber.Ctx) error {
-		collection := mg.Db.Collection("bezelRings")
-
-		// New Employee struct
-		bezelRingObj := new(BezelRing)
-		// Parse body into struct
-		if err := c.BodyParser(bezelRingObj); err != nil {
-			return c.Status(400).SendString(err.Error())
-		}
-
-		// force MongoDB to always set its own generated ObjectIDs
-		bezelRingObj.ID = ""
-
-		// insert the record
-		insertionResult, err := collection.InsertOne(c.Context(), bezelRingObj)
-		if err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		// get the just inserted record in order to return it as response
-		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
-		createdRecord := collection.FindOne(c.Context(), filter)
-
-		// decode the Mongo record into Employee
-		createdBezelRing := &BezelRing{}
-		createdRecord.Decode(createdBezelRing)
-
-		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdBezelRing)
-	})
-
-	app.Post("/bezelinsert", func(c *fiber.Ctx) error {
-		collection := mg.Db.Collection("bezelInserts")
-
-		// New Employee struct
-		bezelInsertObj := new(BezelInsert)
-		// Parse body into struct
-		if err := c.BodyParser(bezelInsertObj); err != nil {
-			return c.Status(400).SendString(err.Error())
-		}
-
-		// force MongoDB to always set its own generated ObjectIDs
-		bezelInsertObj.ID = ""
-
-		// insert the record
-		insertionResult, err := collection.InsertOne(c.Context(), bezelInsertObj)
-		if err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		// get the just inserted record in order to return it as response
-		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
-		createdRecord := collection.FindOne(c.Context(), filter)
-
-		// decode the Mongo record into Employee
-		createdBezelInsert := &BezelInsert{}
-		createdRecord.Decode(createdBezelInsert)
-
-		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdBezelInsert)
-	})
-
-	app.Post("/chapterring", func(c *fiber.Ctx) error {
-		collection := mg.Db.Collection("chapterRings")
-
-		// New Employee struct
-		chapterRingObj := new(ChapterRing)
-		// Parse body into struct
-		if err := c.BodyParser(chapterRingObj); err != nil {
-			return c.Status(400).SendString(err.Error())
-		}
-
-		// force MongoDB to always set its own generated ObjectIDs
-		chapterRingObj.ID = ""
-
-		// insert the record
-		insertionResult, err := collection.InsertOne(c.Context(), chapterRingObj)
-		if err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		// get the just inserted record in order to return it as response
-		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
-		createdRecord := collection.FindOne(c.Context(), filter)
-
-		// decode the Mongo record into Employee
-		createdChapterRing := &ChapterRing{}
-		createdRecord.Decode(createdChapterRing)
-
-		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdChapterRing)
-	})
-
-	app.Post("/dial", func(c *fiber.Ctx) error {
-		collection := mg.Db.Collection("dials")
-
-		// New Employee struct
-		dialObj := new(Dial)
-		// Parse body into struct
-		if err := c.BodyParser(dialObj); err != nil {
-			return c.Status(400).SendString(err.Error())
-		}
-
-		// force MongoDB to always set its own generated ObjectIDs
-		dialObj.ID = ""
-
-		// insert the record
-		insertionResult, err := collection.InsertOne(c.Context(), dialObj)
-		if err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		// get the just inserted record in order to return it as response
-		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
-		createdRecord := collection.FindOne(c.Context(), filter)
-
-		// decode the Mongo record into Employee
-		createdDial := &Dial{}
-		createdRecord.Decode(createdDial)
-
-		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdDial)
-	})
-
-	app.Post("/strap", func(c *fiber.Ctx) error {
-		collection := mg.Db.Collection("straps")
-
-		// New Employee struct
-		strapObj := new(Dial)
-		// Parse body into struct
-		if err := c.BodyParser(strapObj); err != nil {
-			return c.Status(400).SendString(err.Error())
-		}
-
-		// force MongoDB to always set its own generated ObjectIDs
-		strapObj.ID = ""
-
-		// insert the record
-		insertionResult, err := collection.InsertOne(c.Context(), strapObj)
-		if err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		// get the just inserted record in order to return it as response
-		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
-		createdRecord := collection.FindOne(c.Context(), filter)
-
-		// decode the Mongo record into Employee
-		createdStrap := &Strap{}
-		createdRecord.Decode(createdStrap)
-
-		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdStrap)
-	})
-
-	app.Post("/hand", func(c *fiber.Ctx) error {
-		collection := mg.Db.Collection("hands")
-
-		// New Employee struct
-		handObj := new(Hand)
-		// Parse body into struct
-		if err := c.BodyParser(handObj); err != nil {
-			return c.Status(400).SendString(err.Error())
-		}
-
-		// force MongoDB to always set its own generated ObjectIDs
-		handObj.ID = ""
-
-		// insert the record
-		insertionResult, err := collection.InsertOne(c.Context(), handObj)
-		if err != nil {
-			return c.Status(500).SendString(err.Error())
-		}
-
-		// get the just inserted record in order to return it as response
-		filter := bson.D{{Key: "_id", Value: insertionResult.InsertedID}}
-		createdRecord := collection.FindOne(c.Context(), filter)
-
-		// decode the Mongo record into Employee
-		createdHand := &Hand{}
-		createdRecord.Decode(createdHand)
-
-		// return the created Employee in JSON format
-		return c.Status(201).JSON(createdHand)
-	})
-	// Update the data
-	app.Put("/updateCase/:id", func(c *fiber.Ctx) error {
+	app.Put("/update/:part/:id", func(c *fiber.Ctx) error {
 
 		idParam := c.Params("id")
-		caseId, err := primitive.ObjectIDFromHex(idParam)
+		partName := c.Params("part")
+		collection := mg.Db.Collection(partName)
+
+		partId, err := primitive.ObjectIDFromHex(idParam)
 
 		// the provided ID might be invalid ObjectID
 		if err != nil {
 			return c.SendStatus(400)
 		}
 
-		caseObj := new(Case)
+		// New part struct
+		partObj := make(bson.M)
 
 		// Parse body into struct
-		if err := c.BodyParser(caseObj); err != nil {
+		if err := c.BodyParser(&partObj); err != nil {
 			return c.Status(400).SendString(err.Error())
 		}
 
-		fmt.Println(caseId)
+		fmt.Println(partId)
 
 		// Find the casedb and update its data
-		query := bson.D{{Key: "_id", Value: caseId}}
+		query := bson.D{{Key: "_id", Value: partId}}
 		update := bson.D{
 			{Key: "$set",
-				Value: bson.D{
-					{Key: "shape", Value: caseObj.Shape},
-					{Key: "width", Value: caseObj.Width},
-					{Key: "dialsize", Value: caseObj.DialSize},
-					{Key: "material", Value: caseObj.Material},
-					{Key: "finish", Value: caseObj.Finish},
-					{Key: "movements", Value: caseObj.Movement},
-					{Key: "color", Value: caseObj.Color},
-					{Key: "imagepath", Value: caseObj.ImagePath},
-				},
+				Value: partObj,
 			},
 		}
-		err = mg.Db.Collection("cases").FindOneAndUpdate(c.Context(), query, update).Err()
+		err = collection.FindOneAndUpdate(c.Context(), query, update).Err()
 
 		if err != nil {
 			// ErrNoDocuments means that the filter did not match any documents in the collection
@@ -569,17 +179,17 @@ func main() {
 		}
 
 		// return the updated casedb
-		caseObj.ID = idParam
-		return c.Status(200).JSON(caseObj)
+		return c.Status(200).JSON(idParam)
 	})
-	app.Delete("/deleteCase/:id", func(c *fiber.Ctx) error {
 
-		CaseID, err := primitive.ObjectIDFromHex(c.Params("id"))
+	app.Delete("/delete/:part/:id", func(c *fiber.Ctx) error {
+
+		partID, err := primitive.ObjectIDFromHex(c.Params("id"))
 		if err != nil {
 			return c.SendStatus(400)
 		}
 
-		query := bson.D{{Key: "_id", Value: CaseID}}
+		query := bson.D{{Key: "_id", Value: partID}}
 		result, err := mg.Db.Collection("cases").DeleteOne(c.Context(), &query)
 		if err != nil {
 			return c.SendStatus(500)
@@ -592,65 +202,6 @@ func main() {
 		return c.Status(200).JSON("record deleted")
 
 	})
-	app.Delete("/deleteMovements/:id", func(c *fiber.Ctx) error {
 
-		CaseID, err := primitive.ObjectIDFromHex(c.Params("id"))
-		if err != nil {
-			return c.SendStatus(400)
-		}
-
-		query := bson.D{{Key: "_id", Value: CaseID}}
-		result, err := mg.Db.Collection("movements").DeleteOne(c.Context(), &query)
-		if err != nil {
-			return c.SendStatus(500)
-		}
-
-		if result.DeletedCount < 1 {
-			return c.SendStatus(404)
-		}
-
-		return c.Status(200).JSON("record deleted")
-
-	})
-	app.Delete("/deleteChapterring/:id", func(c *fiber.Ctx) error {
-
-		CaseID, err := primitive.ObjectIDFromHex(c.Params("id"))
-		if err != nil {
-			return c.SendStatus(400)
-		}
-
-		query := bson.D{{Key: "_id", Value: CaseID}}
-		result, err := mg.Db.Collection("chapterRings").DeleteOne(c.Context(), &query)
-		if err != nil {
-			return c.SendStatus(500)
-		}
-
-		if result.DeletedCount < 1 {
-			return c.SendStatus(404)
-		}
-
-		return c.Status(200).JSON("record deleted")
-
-	})
-	app.Delete("/deleteStrap/:id", func(c *fiber.Ctx) error {
-
-		CaseID, err := primitive.ObjectIDFromHex(c.Params("id"))
-		if err != nil {
-			return c.SendStatus(400)
-		}
-
-		query := bson.D{{Key: "_id", Value: CaseID}}
-		result, err := mg.Db.Collection("straps").DeleteOne(c.Context(), &query)
-		if err != nil {
-			return c.SendStatus(500)
-		}
-
-		if result.DeletedCount < 1 {
-			return c.SendStatus(404)
-		}
-
-		return c.Status(200).JSON("record deleted")
-
-	})
-	app.Listen(":3000")
+	return app
 }
