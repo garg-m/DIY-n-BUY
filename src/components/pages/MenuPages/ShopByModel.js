@@ -91,7 +91,7 @@ export default class ShopByModel extends Component{
             
                 <div>
                     <h1>Hello World</h1>
-               <Select
+               <Select 
                options={this.data}
                value={this.state.selectedValue}
                onChange={this.handleChange}
@@ -108,7 +108,7 @@ export default class ShopByModel extends Component{
             
             <div>
                 <h1>Hello World</h1>
-           <Select
+           <Select 
            options={this.data}
            value={this.state.selectedValue}
            onChange={this.handleChange}
@@ -124,7 +124,7 @@ export default class ShopByModel extends Component{
             
             <div>
                 <h1>Hello World</h1>
-           <Select
+           <Select 
            options={this.data}
            value={this.state.selectedValue}
            onChange={this.handleChange}
@@ -140,7 +140,7 @@ export default class ShopByModel extends Component{
             
             <div>
                 <h1>Hello World</h1>
-           <Select
+           <Select 
            options={this.data}
            value={this.state.selectedValue}
            onChange={this.handleChange}
@@ -156,7 +156,7 @@ export default class ShopByModel extends Component{
             
             <div>
                 <h1>Hello World</h1>
-           <Select
+           <Select 
            options={this.data}
            value={this.state.selectedValue}
            onChange={this.handleChange}
@@ -172,7 +172,7 @@ export default class ShopByModel extends Component{
             
             <div>
                 <h1>Hello World</h1>
-           <Select
+           <Select 
            options={this.data}
            value={this.state.selectedValue}
            onChange={this.handleChange}
@@ -188,7 +188,7 @@ export default class ShopByModel extends Component{
             
             <div>
                 <h1>Hello World</h1>
-           <Select
+           <Select 
            options={this.data}
            value={this.state.selectedValue}
            onChange={this.handleChange}
@@ -204,7 +204,7 @@ export default class ShopByModel extends Component{
             
             <div>
                 <h1>Hello World</h1>
-           <Select
+           <Select 
            options={this.data}
            value={this.state.selectedValue}
            onChange={this.handleChange}
@@ -220,7 +220,7 @@ export default class ShopByModel extends Component{
             
             <div>
                 <h1>Hello World</h1>
-           <Select
+           <Select 
            options={this.data}
            value={this.state.selectedValue}
            onChange={this.handleChange}
@@ -236,7 +236,7 @@ export default class ShopByModel extends Component{
             
             <div>
                 <h1>Hello World</h1>
-           <Select
+           <Select 
            options={this.data}
            value={this.state.selectedValue}
            onChange={this.handleChange}
@@ -250,7 +250,7 @@ export default class ShopByModel extends Component{
 
         else{
             return(<div>
-                <Select
+                <Select 
                options={this.data}
                value={this.state.selectedValue}
                onChange={this.handleChange}
