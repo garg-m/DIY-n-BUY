@@ -2,11 +2,19 @@ import React, {useMemo} from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_CASE from './MOCK_DATA_CASE.json';
 import {columnCase, groupedColumnsCase} from './columnsCase';
+import MetaTags from 'react-meta-tags';
+
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
 export const TableCase=()=>{
     const getMoviesFromApi = () => {
-        return fetch('http://localhost:3001/getAll/cases')
+        return fetch('http://localhost:3001/getAll/cases/',{
+            method: "GET",
+            mode: 'cors',
+            headers: {
+              "access-control-allow-origin" : "*",
+              "Content-type": "application/json; charset=UTF-8"
+            }})
           .then((response) => response.json())
           .then((json) => {
             return json;
@@ -15,9 +23,10 @@ export const TableCase=()=>{
             console.error(error);
           });
       };
-    
+    console.log(getMoviesFromApi())
+
     const columns=useMemo(()=> groupedColumnsCase, [])
-    const data=useMemo(()=> getMoviesFromApi, [])
+    const data=useMemo(()=> MOCK_DATA_CASE , [])
    const tableInstance= useTable({
         columns,
         data
@@ -41,7 +50,11 @@ export const TableCase=()=>{
     const {pageIndex}=state
     const CircularJSON = require('circular-json')
     return(
-        <>
+        <div class="wrapper">
+        <MetaTags>
+        <meta http-equiv="Content-Security-Policy: connect-src http://localhost:*/"></meta>
+        </MetaTags>
+
         <table {...getTableProps()}>
             <thead>
                 {
@@ -112,6 +125,6 @@ export const TableCase=()=>{
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
         </div>
-        </>
+        </div>
     )
 }

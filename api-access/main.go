@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -26,6 +27,13 @@ const mongoURI = "mongodb+srv://diy-n-buy:xuCRbizpdhOI3pAF@cluster0.fwokq.mongod
 
 func main() {
 	app := Setup()
+	app.Use(cors.New())
+	app.Use(cors.New(cors.Config{
+		//AllowOrigins: "https://gofiber.io, https://gofiber.net",
+		AllowOrigins: "*",
+		AllowHeaders: "Origin, Content-Type, Accept",
+		AllowMethods: "GET,POST,PUT,DELETE",
+	}))
 	log.Fatal(app.Listen(":3001"))
 }
 
