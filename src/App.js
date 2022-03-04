@@ -14,7 +14,7 @@ import { PaginationTable } from "./components/PaginationTable"
 import NewProducts from "./components/NewProducts";
 import { RowSelection } from "./components/RowSelection";
 import {SimpleDropdownMenu} from "./components/SimpleDropdownMenu"
-import { TableMovements } from "./components/TableMovements";
+import { TableMovements } from "./components/tableMovements";
 
 
 
