@@ -13,7 +13,7 @@ React is used for frontend and Go for backend. We are going to use MongoDB datab
 
 # Team Members
 
-KRISHNA KIREETI RAYAPROLU- rayaprolu.k@ufl.edu- <br/>
+Krishna Kireeti Rayaprolu- rayaprolu.k@ufl.edu- <br/>
 Srisharanya Injarapu- injarapu.s@ufl.edu- <br/>
 Harsh Soni- harshsoni@ufl.edu-  <br/>
 Mayank Garg- gargm@ufl.edu- <br/>
