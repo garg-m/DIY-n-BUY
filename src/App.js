@@ -29,7 +29,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="CreateMod"  element={<CreateMod />} />
           <Route path="LoginReg"  element={<LoginReg />} />
-          <Route path="ShopByParts" element={<TableMovements />}/>
+          <Route path="ShopByParts" element={<ShopByParts />}/>
           <Route path="ShopByModel" element={<ShopByModel />}/>
           <Route path="NewProducts" element={<NewProducts />}/>
 
