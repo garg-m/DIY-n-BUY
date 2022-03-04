@@ -10,9 +10,9 @@ export const TableCase=()=>{
     const getMoviesFromApi = () => {
         return fetch('http://localhost:3001/getAll/cases/',{
             method: "GET",
-            mode: 'cors',
+            mode: 'no-cors',
+            crossDomain: true,
             headers: {
-              "access-control-allow-origin" : "*",
               "Content-type": "application/json; charset=UTF-8"
             }})
           .then((response) => response.json())
@@ -23,6 +23,7 @@ export const TableCase=()=>{
             console.error(error);
           });
       };
+
     console.log(getMoviesFromApi())
 
     const columns=useMemo(()=> groupedColumnsCase, [])
@@ -51,10 +52,6 @@ export const TableCase=()=>{
     const CircularJSON = require('circular-json')
     return(
         <div class="wrapper">
-        <MetaTags>
-        <meta http-equiv="Content-Security-Policy: connect-src http://localhost:*/"></meta>
-        </MetaTags>
-
         <table {...getTableProps()}>
             <thead>
                 {
