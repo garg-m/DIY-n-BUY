@@ -5,8 +5,19 @@ import {columnCase, groupedColumnsCase} from './columnsCase';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
 export const TableCase=()=>{
+    const getMoviesFromApi = () => {
+        return fetch('http://localhost:3001/getAll/cases')
+          .then((response) => response.json())
+          .then((json) => {
+            return json;
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      };
+    
     const columns=useMemo(()=> groupedColumnsCase, [])
-    const data=useMemo(()=> MOCK_DATA_CASE, [])
+    const data=useMemo(()=> getMoviesFromApi, [])
    const tableInstance= useTable({
         columns,
         data
