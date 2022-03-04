@@ -26,7 +26,7 @@ const mongoURI = "mongodb+srv://diy-n-buy:xuCRbizpdhOI3pAF@cluster0.fwokq.mongod
 
 func main() {
 	app := Setup()
-	log.Fatal(app.Listen(":3000"))
+	log.Fatal(app.Listen(":3001"))
 }
 
 func Connect() error {
