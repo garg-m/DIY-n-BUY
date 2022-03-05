@@ -7,30 +7,29 @@ import MetaTags from 'react-meta-tags';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
 export const TableCase=()=>{
-    const getMoviesFromApi = () => {
-        return fetch('http://localhost:3001/getAll/cases/',{
+
+    async function getAllCases(){
+        const res = await fetch('http://localhost:3001/getAll/cases/',{
             method: "GET",
-            mode: 'no-cors',
-            crossDomain: true,
-            headers: {
-              "Content-type": "application/json; charset=UTF-8"
-            }})
-          .then((response) => response.json())
-          .then((json) => {
-            return json;
-          })
+            mode: 'cors',
+            })
+          .then((response) => response.text()
+          .then(jsonContents=>{
+            console.log(jsonContents)
+            })
           .catch((error) => {
             console.error(error);
-          });
-      };
+          }));
+        return res;
+    }
 
-    console.log(getMoviesFromApi())
+    //getAllCases();
 
     const columns=useMemo(()=> groupedColumnsCase, [])
-    const data=useMemo(()=> MOCK_DATA_CASE , [])
+    const data=useMemo(()=> getAllCases(), [])
    const tableInstance= useTable({
         columns,
-        data
+       data
     },useSortBy, usePagination, useRowSelect)
     const{
         getTableProps,
