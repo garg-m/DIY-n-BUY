@@ -1,29 +1,34 @@
-import React, {useMemo} from "react";
+import React, {useMemo, useState,useEffect} from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_CASE from './MOCK_DATA_CASE.json';
 import {columnCase, groupedColumnsCase} from './columnsCase';
-import MetaTags from 'react-meta-tags';
 
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import reactDom from "react-dom";
 export const TableCase=()=>{
 
-    async function getAllCases(){
-        return fetch('http://localhost:3001/getAll/cases/',{
+    const [tableData, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/getAll/cases/',{
             method: "GET",
             mode: 'cors',
             })
           .then((response) => response.text()
           .then(jsonContents=>{
             console.log(JSON.parse(jsonContents))
+            setData(JSON.parse(jsonContents))
             })
           .catch((error) => {
             console.error(error);
           }));
-    }
+      }, []);
+    
 
     const columns=useMemo(()=> groupedColumnsCase, [])
-    const data=useMemo(()=> getAllCases(), [])
+    const data=useMemo(()=> tableData, [])
+
    const tableInstance= useTable({
         columns,
        data
@@ -44,6 +49,7 @@ export const TableCase=()=>{
         state,
         prepareRow,
     }=tableInstance
+
     const {pageIndex}=state
     const CircularJSON = require('circular-json')
 
