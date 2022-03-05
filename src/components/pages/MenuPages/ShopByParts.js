@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import { useState } from "react";
 import Select from 'react-select';
 import { RowSelection } from "../../RowSelection";
-import { TableMovements } from "../../TableMovements";
+import { TableMovements } from "../../tableMovements";
 import { TableCase } from "../../TableCase";
 import { TableCrystal } from "../../TableCrystal"
 import { TableCrown } from "../../TableCrown";
