@@ -6,6 +6,7 @@ import (
 	"time"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -26,11 +27,11 @@ const mongoURI = "mongodb+srv://diy-n-buy:xuCRbizpdhOI3pAF@cluster0.fwokq.mongod
 
 func main() {
 	app := Setup()
-	// app.Use(cors.New(cors.Config{
-	// 	AllowOrigins: "*",
-	// 	AllowHeaders: "Origin, Content-Type, Accept",
-	// 	AllowMethods: "GET",
-	// }))
+	//app.Use(cors.New())
+	app.Use(cors.New(cors.Config{
+		AllowHeaders: "Origin, Content-Type, Accept, Accept-Encoding, Accept-Language, Connection, Host, Referer",
+		AllowMethods: "GET, OPTIONS",
+	}))
 	log.Fatal(app.Listen(":3001"))
 }
 
