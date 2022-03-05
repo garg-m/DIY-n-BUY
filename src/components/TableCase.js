@@ -8,19 +8,31 @@ import './tableShopByParts.css'
 import { style, width } from "@mui/system";
 export const TableCase=()=>{
 
-    console.log(getAllCases())
+    async function getAllCases(){
+        return fetch('http://localhost:3001/getAll/cases/',{
+            method: "GET",
+            mode: 'cors',
+            })
+          .then((response) => response.text()
+          .then(jsonContents=>{
+            console.log(JSON.parse(jsonContents))
+            })
+          .catch((error) => {
+            console.error(error);
+          }));
+    }
 
     const columns=useMemo(()=> groupedColumnsCase, [])
-    const data=useMemo(()=> MOCK_DATA_CASE, [])
+    const data=useMemo(()=> getAllCases(), [])
    const tableInstance= useTable({
         columns,
        data
     },useSortBy, usePagination, useRowSelect)
+
     const{
         getTableProps,
         getTableBodyProps,
         headerGroups,
-        
         page,
         nextPage,
         previousPage,
@@ -34,24 +46,6 @@ export const TableCase=()=>{
     }=tableInstance
     const {pageIndex}=state
     const CircularJSON = require('circular-json')
-
-    async function getAllCases(tableIns){
-        const res = await fetch('http://localhost:3001/getAll/cases/',{
-            method: "GET",
-            mode: 'cors',
-            })
-          .then((response) => response.text()
-          .then(jsonContents=>{
-            console.log(jsonContents)
-            tableIns.data=JSON.parse(jsonContents)
-            })
-          .catch((error) => {
-            console.error(error);
-          }));
-        return res;
-    }
-
-    getAllCases(tableInstance);
 
     return(
         <div class="wrapper">
