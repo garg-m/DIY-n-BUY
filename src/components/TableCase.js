@@ -8,25 +8,10 @@ import './tableShopByParts.css'
 import { style, width } from "@mui/system";
 export const TableCase=()=>{
 
-    async function getAllCases(){
-        const res = await fetch('http://localhost:3001/getAll/cases/',{
-            method: "GET",
-            mode: 'cors',
-            })
-          .then((response) => response.text()
-          .then(jsonContents=>{
-            console.log(jsonContents)
-            })
-          .catch((error) => {
-            console.error(error);
-          }));
-        return res;
-    }
-
-    //getAllCases();
+    console.log(getAllCases())
 
     const columns=useMemo(()=> groupedColumnsCase, [])
-    const data=useMemo(()=> getAllCases(), [])
+    const data=useMemo(()=> MOCK_DATA_CASE, [])
    const tableInstance= useTable({
         columns,
        data
@@ -49,6 +34,25 @@ export const TableCase=()=>{
     }=tableInstance
     const {pageIndex}=state
     const CircularJSON = require('circular-json')
+
+    async function getAllCases(tableIns){
+        const res = await fetch('http://localhost:3001/getAll/cases/',{
+            method: "GET",
+            mode: 'cors',
+            })
+          .then((response) => response.text()
+          .then(jsonContents=>{
+            console.log(jsonContents)
+            tableIns.data=JSON.parse(jsonContents)
+            })
+          .catch((error) => {
+            console.error(error);
+          }));
+        return res;
+    }
+
+    getAllCases(tableInstance);
+
     return(
         <div class="wrapper">
         <table {...getTableProps()}>
