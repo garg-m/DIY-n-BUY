@@ -1,7 +1,7 @@
 Video description for Sprint -2
 https://1drv.ms/u/s!AlqK0ZbULa0Hgq8bqxUZf_0yOGkkZg?e=hTfEFV
 
-Front-end Documentation:
+Frontend Documentation:
 We developed a component where the user can select various parts of his build.
 The user can do so with a drop down and the tables get populated as per his selection.
 
@@ -11,5 +11,9 @@ We have made the rows clickable and the selected row objects are initially store
 
 
 For cypress unit tests, we have tested login, registration, forgot password, reset-password pages and drop-down menu.
+
+Backend API Documentation:
+You can find the backend API documentationa in the wiki section of the repository.
+https://github.com/kireeti-r/DIY-n-BUY/wiki/API-endpoints
 
 
