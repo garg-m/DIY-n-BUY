@@ -8,13 +8,13 @@ import ShopByModel from "./components/pages/MenuPages/ShopByModel";
 import SendPasswordResetEmail from "./components/pages/Auth/sendPasswordResetEmail";
 import ResetPassword from "./components/pages/Auth/ResetPassword";
 import Dashboard from "./components/pages/Dashboard";
-import { BasicTable } from "./components/BasicTable";
-import { sortingTable } from "./components/sortingTable";
-import { PaginationTable } from "./components/PaginationTable"
-import NewProducts from "./components/NewProducts";
-import { RowSelection } from "./components/RowSelection";
-import {SimpleDropdownMenu} from "./components/SimpleDropdownMenu"
-import { TableMovements } from "./components/TableMovements";
+import { BasicTable } from "./components/partComponents/BasicTable";
+import { sortingTable } from "./components/partComponents/sortingTable";
+import { PaginationTable } from "./components/partComponents/PaginationTable"
+import NewProducts from "./components/partComponents/NewProducts";
+import { RowSelection } from "./components/partComponents/RowSelection";
+import {SimpleDropdownMenu} from "./components/partComponents/SimpleDropdownMenu"
+import { TableMovements } from "./components/partComponents/TableMovements";
 
 
 
