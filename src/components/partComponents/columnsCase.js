@@ -2,7 +2,7 @@ export const columnsCase = [
     {
         Header: 'ID',
         Footer: "ID",
-        accessor: "id"
+        accessor: "_id"
     },
     {
         Header: 'Shape',
@@ -51,7 +51,7 @@ export const groupedColumnsCase = [
     {
         Header: 'Id',
         Footer: 'Id',
-        accessor: 'id'
+        accessor: '_id'
     },
     {
         Header: 'Details',
