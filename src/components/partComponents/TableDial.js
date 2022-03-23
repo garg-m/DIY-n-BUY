@@ -1,43 +1,21 @@
-import React, {useMemo, useState,useEffect} from "react";
+import React, {useMemo} from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
-import MOCK_DATA_CASE from './MOCK_DATA_CASE.json';
-import {columnCase, groupedColumnsCase} from './columnsCase';
-
+import MOCK_DATA_DIAL from '../mockData/MOCK_DATA_CHAPTER_RING.json';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
-import reactDom from "react-dom";
-export const TableCase=()=>{
-
-    const [tableData, setData] = useState([]);
-
-    useEffect(() => {
-        fetch('http://localhost:3001/getAll/cases/',{
-            method: "GET",
-            mode: 'cors',
-            })
-          .then((response) => response.text()
-          .then(jsonContents=>{
-            console.log(JSON.parse(jsonContents))
-            setData(JSON.parse(jsonContents))
-            })
-          .catch((error) => {
-            console.error(error);
-          }));
-      }, []);
-    
-
-    const columns=useMemo(()=> groupedColumnsCase, [])
-    const data=useMemo(()=> tableData, [])
-
+import { columnDial,groupedColumnsDial } from "./columnsDial";
+export const TableDial=()=>{
+    const columns=useMemo(()=> groupedColumnsDial, [])
+    const data=useMemo(()=> MOCK_DATA_DIAL, [])
    const tableInstance= useTable({
         columns,
-       data
+        data
     },useSortBy, usePagination, useRowSelect)
-
     const{
         getTableProps,
         getTableBodyProps,
         headerGroups,
+        
         page,
         nextPage,
         previousPage,
@@ -49,12 +27,10 @@ export const TableCase=()=>{
         state,
         prepareRow,
     }=tableInstance
-
     const {pageIndex}=state
     const CircularJSON = require('circular-json')
-
     return(
-        <div class="wrapper">
+        <>
         <table {...getTableProps()}>
             <thead>
                 {
@@ -125,6 +101,6 @@ export const TableCase=()=>{
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
         </div>
-        </div>
+        </>
     )
 }

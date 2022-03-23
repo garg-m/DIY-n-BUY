@@ -1,12 +1,12 @@
 import React, {useMemo} from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
-import MOCK_DATA_CHAPTER_RING from './MOCK_DATA_CHAPTER_RING.json';
-import {columnCase, groupedColumnsChapterRing} from './columnsChapterRing';
+import MOCK_DATA_CRYSTAL from '../mockData/MOCK_DATA_CRYSTAL.json';
+import {columnCrystal, groupedColumnsCrystal} from './columnsCrystal';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
-export const TableChapterRing=()=>{
-    const columns=useMemo(()=> groupedColumnsChapterRing, [])
-    const data=useMemo(()=> MOCK_DATA_CHAPTER_RING, [])
+export const TableCrystal=()=>{
+    const columns=useMemo(()=> groupedColumnsCrystal, [])
+    const data=useMemo(()=> MOCK_DATA_CRYSTAL, [])
    const tableInstance= useTable({
         columns,
         data
