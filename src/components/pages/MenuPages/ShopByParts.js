@@ -2,17 +2,17 @@ import React, {Component} from "react";
 import { render } from '@testing-library/react';
 import { useState } from "react";
 import Select from 'react-select';
-import { RowSelection } from "../../RowSelection";
-import { TableMovements } from "../../TableMovements";
-import { TableCase } from "../../TableCase";
-import { TableCrystal } from "../../TableCrystal"
-import { TableCrown } from "../../TableCrown";
-import { TableBezelRing } from "../../TableBezelRing";
-import { TableBezelInsert } from "../../TableBezelInsert";
-import { TableChapterRing } from "../../TableChapterRing";
-import { TableDial } from "../../TableDial";
-import { TableStrap } from "../../TableStrap";
-import { TableHand } from "../../TableHand";
+import { RowSelection } from "../../partComponents/RowSelection";
+import { TableMovements } from "../../partComponents/TableMovements";
+import { TableCase } from "../../partComponents/TableCase";
+import { TableCrystal } from "../../partComponents/TableCrystal"
+import { TableCrown } from "../../partComponents/TableCrown";
+import { TableBezelRing } from "../../partComponents/TableBezelRing";
+import { TableBezelInsert } from "../../partComponents/TableBezelInsert";
+import { TableChapterRing } from "../../partComponents/TableChapterRing";
+import { TableDial } from "../../partComponents/TableDial";
+import { TableStrap } from "../../partComponents/TableStrap";
+import { TableHand } from "../../partComponents/TableHand";
 
   
 

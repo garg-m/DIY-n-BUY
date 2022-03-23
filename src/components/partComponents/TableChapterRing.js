@@ -1,12 +1,12 @@
 import React, {useMemo} from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
-import MOCK_DATA_MOVEMENT from './MOCK_DATA_MOVEMENT.json';
-import {columnsMovements, groupedColumnsMovements} from './columnsMovements';
+import MOCK_DATA_CHAPTER_RING from '../mockData/MOCK_DATA_CHAPTER_RING.json';
+import {columnCase, groupedColumnsChapterRing} from './columnsChapterRing';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
-export const TableMovements=()=>{
-    const columns=useMemo(()=> groupedColumnsMovements, [])
-    const data=useMemo(()=> MOCK_DATA_MOVEMENT, [])
+export const TableChapterRing=()=>{
+    const columns=useMemo(()=> groupedColumnsChapterRing, [])
+    const data=useMemo(()=> MOCK_DATA_CHAPTER_RING, [])
    const tableInstance= useTable({
         columns,
         data
