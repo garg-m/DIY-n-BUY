@@ -1,16 +1,16 @@
 import React, {useMemo} from "react";
-import { useTable, useSortBy, usePagination } from "react-table";
-import MOCK_DATA from './MOCK_DATA.json';
-import {COLUMNS, groupedColumns} from './columnsShopByParts';
+import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
+import MOCK_DATA_BEZEL_INSERT from '../mockData/MOCK_DATA_BEZEL_INSERT.json';
+import {columnCase, groupedColumnsBezelInsert} from './columnsBezelInsert';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
-export const PaginationTable=()=>{
-    const columns=useMemo(()=> groupedColumns, [])
-    const data=useMemo(()=> MOCK_DATA, [])
+export const TableBezelInsert=()=>{
+    const columns=useMemo(()=> groupedColumnsBezelInsert, [])
+    const data=useMemo(()=> MOCK_DATA_BEZEL_INSERT, [])
    const tableInstance= useTable({
         columns,
         data
-    },useSortBy, usePagination)
+    },useSortBy, usePagination, useRowSelect)
     const{
         getTableProps,
         getTableBodyProps,
@@ -28,6 +28,7 @@ export const PaginationTable=()=>{
         prepareRow,
     }=tableInstance
     const {pageIndex}=state
+    const CircularJSON = require('circular-json')
     return(
         <>
         <table {...getTableProps()}>
@@ -57,7 +58,8 @@ export const PaginationTable=()=>{
                     page.map(row => {
                         prepareRow(row)
                         return(
-                            <tr {...row.getRowProps()}>
+                            <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
+                            localStorage.setItem('row click',CircularJSON.stringify(row))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
