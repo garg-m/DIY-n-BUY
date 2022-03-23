@@ -1,12 +1,12 @@
 import React, {useMemo} from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
-import MOCK_DATA_BEZEL_INSERT from './MOCK_DATA_BEZEL_INSERT.json';
-import {columnCase, groupedColumnsBezelInsert} from './columnsBezelInsert';
+import MOCK_DATA_BEZEL_RING from '../mockData/MOCK_DATA_BEZEL_RING.json';
+import {columnCase, groupedColumnsBezelRing} from './columnsBezelRing';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
-export const TableBezelInsert=()=>{
-    const columns=useMemo(()=> groupedColumnsBezelInsert, [])
-    const data=useMemo(()=> MOCK_DATA_BEZEL_INSERT, [])
+export const TableBezelRing=()=>{
+    const columns=useMemo(()=> groupedColumnsBezelRing, [])
+    const data=useMemo(()=> MOCK_DATA_BEZEL_RING, [])
    const tableInstance= useTable({
         columns,
         data
