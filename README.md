@@ -17,3 +17,14 @@ Krishna Kireeti Rayaprolu- rayaprolu.k@ufl.edu- <br/>
 Srisharanya Injarapu- injarapu.s@ufl.edu- <br/>
 Harsh Soni- harshsoni@ufl.edu-  <br/>
 Mayank Garg- gargm@ufl.edu- <br/>
+
+# Frontend Developers
+
+Krishna Kireeti Rayaprolu-rayaprolu.k@ufl.edu -<br/>
+Mayank Garg- gargm@ufl.edu- <br/>
+
+# Backend Developers
+Srisharanya Injarapu- injarapu.s@ufl.edu- <br/>
+Harsh Soni- harshsoni@ufl.edu-  <br/>
+
+
