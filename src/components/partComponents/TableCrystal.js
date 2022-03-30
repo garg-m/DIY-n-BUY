@@ -59,7 +59,7 @@ export const TableCrystal=()=>{
                     page.map(row => {
                         prepareRow(row)
                         return(
-                            <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
+                            <tr {...row.getRowProps()} onClick={()=>{
                             localStorage.setItem('row click',CircularJSON.stringify(row))}}>
                                 {
                                     row.cells.map(cell =>{
@@ -99,10 +99,11 @@ export const TableCrystal=()=>{
             </span>
             <button onClick={()=>gotoPage(0)}disabled ={!canPreviousPage}>{'<<'}</button>
             <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Previous</button>
-            <Link to="/Cart"><button>
-              Cart 
-            </button>
+            <Link to="/Cart">
+            <button onClick={()=>localStorage.getItem('row click')} >Cart</button>
             </Link>
+           
+            
             
 
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>

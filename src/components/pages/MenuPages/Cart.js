@@ -1,12 +1,20 @@
+import { getAccordionDetailsUtilityClass } from "@mui/material";
 import React from "react";
-const Cart = () => {
-    return (
-      <div>
-          <h1>
-              Hello world from Cart
-          </h1>
-      </div>
-    );
-  };
+import { TableCrystal } from "../../partComponents/TableCrystal";
+import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
+class Cart extends React.Component{
     
-  export default Cart;
+    render(){
+        
+        return(
+            
+
+            localStorage.getItem('row click')
+            
+            
+            
+        )
+    }
+
+}
+export default Cart;
