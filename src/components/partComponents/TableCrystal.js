@@ -4,6 +4,7 @@ import MOCK_DATA_CRYSTAL from '../mockData/MOCK_DATA_CRYSTAL.json';
 import {columnCrystal, groupedColumnsCrystal} from './columnsCrystal';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 export const TableCrystal=()=>{
     const columns=useMemo(()=> groupedColumnsCrystal, [])
     const data=useMemo(()=> MOCK_DATA_CRYSTAL, [])
@@ -98,6 +99,12 @@ export const TableCrystal=()=>{
             </span>
             <button onClick={()=>gotoPage(0)}disabled ={!canPreviousPage}>{'<<'}</button>
             <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Previous</button>
+            <Link to="/Cart"><button>
+              Cart 
+            </button>
+            </Link>
+            
+
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
         </div>

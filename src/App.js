@@ -15,6 +15,7 @@ import NewProducts from "./components/partComponents/NewProducts";
 import { RowSelection } from "./components/partComponents/RowSelection";
 import {SimpleDropdownMenu} from "./components/partComponents/SimpleDropdownMenu"
 import { TableMovements } from "./components/partComponents/TableMovements";
+import Cart from "./components/pages/MenuPages/Cart";
 
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="ShopByParts" element={<ShopByParts />}/>
           <Route path="ShopByModel" element={<ShopByModel />}/>
           <Route path="NewProducts" element={<NewProducts />}/>
+          <Route path="Cart" element={<Cart />}/>
 
           <Route path="sendpasswordresetemail"  element={<SendPasswordResetEmail />} />
           <Route path="reset"  element={<ResetPassword />} />
