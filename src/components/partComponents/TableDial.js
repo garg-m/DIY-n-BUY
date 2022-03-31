@@ -59,7 +59,7 @@ export const TableDial=()=>{
                         prepareRow(row)
                         return(
                             <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
-                            localStorage.setItem('row click',CircularJSON.stringify(row))}}>
+                            localStorage.setItem('row click Dial',CircularJSON.stringify(row.orginal))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>

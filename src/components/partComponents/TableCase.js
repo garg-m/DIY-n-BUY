@@ -83,7 +83,7 @@ export const TableCase=()=>{
                         prepareRow(row)
                         return(
                             <tr {...row.getRowProps()} onClick={()=>{
-                            localStorage.setItem('row click',CircularJSON.stringify(row.original))}}>
+                            localStorage.setItem('row click Case',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
