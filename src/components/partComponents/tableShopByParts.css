@@ -12,6 +12,10 @@ table {
   table tr:nth-child(even){background-color: #f2f2f2;}
   
   table tr:hover {background-color: #ddd;}
+
+  
+
+  table tr:active {background-color: aqua;}
   
   table th, tfoot td {
     padding-top: 12px;

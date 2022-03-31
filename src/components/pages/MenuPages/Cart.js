@@ -9,7 +9,8 @@ class Cart extends React.Component{
         return(
             
 
-            localStorage.getItem('row click')
+            //localStorage.getItem('row click')
+            Object.keys(localStorage).map(k => localStorage.getItem(k))
             
             
             
