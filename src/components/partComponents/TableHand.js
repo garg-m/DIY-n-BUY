@@ -3,6 +3,7 @@ import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_HAND from '../mockData/MOCK_DATA_HAND.json';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 import { columnsHand, groupedColumnsHand } from "./columnsHand";
 export const TableHand=()=>{
     const columns=useMemo(()=> groupedColumnsHand, [])

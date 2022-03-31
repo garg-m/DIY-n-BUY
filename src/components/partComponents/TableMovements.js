@@ -4,6 +4,7 @@ import MOCK_DATA_MOVEMENT from '../mockData/MOCK_DATA_MOVEMENT.json';
 import {columnsMovements, groupedColumnsMovements} from './columnsMovements';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 export const TableMovements=()=>{
     const columns=useMemo(()=> groupedColumnsMovements, [])
     const data=useMemo(()=> MOCK_DATA_MOVEMENT, [])

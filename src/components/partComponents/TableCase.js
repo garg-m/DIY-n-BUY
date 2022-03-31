@@ -5,6 +5,7 @@ import {columnCase, groupedColumnsCase} from './columnsCase';
 
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 import reactDom from "react-dom";
 export const TableCase=()=>{
 

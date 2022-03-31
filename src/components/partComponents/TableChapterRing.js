@@ -4,6 +4,7 @@ import MOCK_DATA_CHAPTER_RING from '../mockData/MOCK_DATA_CHAPTER_RING.json';
 import {columnCase, groupedColumnsChapterRing} from './columnsChapterRing';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 export const TableChapterRing=()=>{
     const columns=useMemo(()=> groupedColumnsChapterRing, [])
     const data=useMemo(()=> MOCK_DATA_CHAPTER_RING, [])

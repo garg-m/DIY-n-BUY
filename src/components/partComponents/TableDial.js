@@ -3,6 +3,7 @@ import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_DIAL from '../mockData/MOCK_DATA_CHAPTER_RING.json';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 import { columnDial,groupedColumnsDial } from "./columnsDial";
 export const TableDial=()=>{
     const columns=useMemo(()=> groupedColumnsDial, [])

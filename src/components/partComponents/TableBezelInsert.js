@@ -4,6 +4,7 @@ import MOCK_DATA_BEZEL_INSERT from '../mockData/MOCK_DATA_BEZEL_INSERT.json';
 import {columnCase, groupedColumnsBezelInsert} from './columnsBezelInsert';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 export const TableBezelInsert=()=>{
     const columns=useMemo(()=> groupedColumnsBezelInsert, [])
     const data=useMemo(()=> MOCK_DATA_BEZEL_INSERT, [])
