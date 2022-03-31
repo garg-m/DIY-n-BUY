@@ -100,7 +100,7 @@ export const TableCrystal=()=>{
             <button onClick={()=>gotoPage(0)}disabled ={!canPreviousPage}>{'<<'}</button>
             <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Previous</button>
             <Link to="/Cart">
-            <button onClick={()=>localStorage.getItem('row click')} >Cart</button>
+            <button onClick={()=>localStorage.getItem('row click Crystal')} >Cart</button>
             </Link>
            
             
