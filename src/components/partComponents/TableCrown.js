@@ -60,7 +60,7 @@ export const TableCrown=()=>{
                         prepareRow(row)
                         return(
                             <tr {...row.getRowProps()} onClick={()=>{console.log('row click crown', row);
-                            localStorage.setItem('row click',CircularJSON.stringify(row.original))}}>
+                            localStorage.setItem('row click crown',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
