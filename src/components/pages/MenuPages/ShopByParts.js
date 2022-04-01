@@ -223,7 +223,18 @@ export default class ShopByParts extends Component {
 
 
           />
+
+          <div id = "SideBySide">
+
+          <div > 
           <TableBezelInsert />
+          </div>
+          <div >
+          <VisualizerSegment />
+          </div>
+
+          </div>
+          
         </div>
       )
     }
@@ -239,7 +250,17 @@ export default class ShopByParts extends Component {
 
 
           />
+
+          <div id = "SideBySide">
+
+          <div > 
           <TableChapterRing />
+          </div>
+          <div >
+          <VisualizerSegment />
+          </div>
+
+          </div>
         </div>
       )
     }
