@@ -13,6 +13,8 @@ import { TableChapterRing } from "../../partComponents/TableChapterRing";
 import { TableDial } from "../../partComponents/TableDial";
 import { TableStrap } from "../../partComponents/TableStrap";
 import { TableHand } from "../../partComponents/TableHand";
+import VisualizerSegment from "../../Visualizer/visualizerSegment";
+import './ShopByParts.css'
 
   
 
@@ -98,7 +100,11 @@ export default class ShopByParts extends Component{
                
               
                 />
-                <RowSelection />
+                <div id="sidebyside">
+                  <div><RowSelection /></div>
+                  <div><VisualizerSegment /></div>
+                </div>
+                
                 </div>
             )
 
@@ -115,7 +121,12 @@ export default class ShopByParts extends Component{
            
           
             />
-            <TableCase />
+            <div id="sidebyside">
+            <div ><TableCase /></div>
+            <div ><VisualizerSegment /></div>
+            </div>
+            
+            
             </div>
         )
         }
