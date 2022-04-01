@@ -81,7 +81,7 @@ export const TableChapterRing=()=>{
             </tbody>
             
         </table>
-        <div align="center">
+        <div align="left">
             <span>
                 Page{' '}
                 <strong>
