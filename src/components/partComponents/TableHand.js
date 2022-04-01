@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import React, {useMemo, useState,useEffect} from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_HAND from '../mockData/MOCK_DATA_HAND.json';
 import './tableShopByParts.css'
@@ -6,8 +6,26 @@ import { style, width } from "@mui/system";
 import { Link } from 'react-router-dom';
 import { columnsHand, groupedColumnsHand } from "./columnsHand";
 export const TableHand=()=>{
-    const columns=useMemo(()=> groupedColumnsHand, [])
-    const data=useMemo(()=> MOCK_DATA_HAND, [])
+
+    const [tableData, setData] = useState([]);
+    
+    useEffect(() => {
+        fetch('http://localhost:3001/getAll/hands/',{
+            method: "GET",
+            mode: 'cors',
+            })
+          .then((response) => response.text()
+          .then(jsonContents=>{
+            console.log(JSON.parse(jsonContents))
+            setData(JSON.parse(jsonContents))
+            })
+          .catch((error) => {
+            console.error(error);
+          }));
+      }, []);
+
+      const columns=useMemo(()=> groupedColumnsHand, [])
+    const data=useMemo(()=> tableData, [])
    const tableInstance= useTable({
         columns,
         data

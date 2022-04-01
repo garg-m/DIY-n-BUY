@@ -1,12 +1,31 @@
-import React, {useMemo} from "react";
+import React, {useMemo, useState,useEffect} from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_STRAP from '../mockData/MOCK_DATA_STRAP.json';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
 import { columnStrap, groupedColumnsStrap } from "./columnsStrap";
 export const TableStrap=()=>{
+    
+    const [tableData, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/getAll/straps/',{
+            method: "GET",
+            mode: 'cors',
+            })
+          .then((response) => response.text()
+          .then(jsonContents=>{
+            console.log(JSON.parse(jsonContents))
+            setData(JSON.parse(jsonContents))
+            })
+          .catch((error) => {
+            console.error(error);
+          }));
+      }, []);
+
     const columns=useMemo(()=> groupedColumnsStrap, [])
-    const data=useMemo(()=> MOCK_DATA_STRAP, [])
+    const data=useMemo(()=> tableData, [])
+
    const tableInstance= useTable({
         columns,
         data

@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import React, {useMemo, useState,useEffect}from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_DIAL from '../mockData/MOCK_DATA_CHAPTER_RING.json';
 import './tableShopByParts.css'
@@ -6,8 +6,27 @@ import { style, width } from "@mui/system";
 import { Link } from 'react-router-dom';
 import { columnDial,groupedColumnsDial } from "./columnsDial";
 export const TableDial=()=>{
-    const columns=useMemo(()=> groupedColumnsDial, [])
-    const data=useMemo(()=> MOCK_DATA_DIAL, [])
+
+    const [tableData, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/getAll/dials/',{
+            method: "GET",
+            mode: 'cors',
+            })
+          .then((response) => response.text()
+          .then(jsonContents=>{
+            console.log(JSON.parse(jsonContents))
+            setData(JSON.parse(jsonContents))
+            })
+          .catch((error) => {
+            console.error(error);
+          }));
+      }, []);
+
+      const columns=useMemo(()=> groupedColumnsDial, [])
+      const data=useMemo(()=> tableData, [])
+      
    const tableInstance= useTable({
         columns,
         data

@@ -27,11 +27,12 @@ const mongoURI = "mongodb+srv://diy-n-buy:xuCRbizpdhOI3pAF@cluster0.fwokq.mongod
 
 func main() {
 	app := Setup()
-	//app.Use(cors.New())
+	app.Use(cors.New())
 	app.Use(cors.New(cors.Config{
 		AllowHeaders: "Origin, Content-Type, Accept, Accept-Encoding, Accept-Language, Connection, Host, Referer",
 		AllowMethods: "GET, OPTIONS",
 	}))
+	// app.Use(cors.New())
 	log.Fatal(app.Listen(":3001"))
 }
 

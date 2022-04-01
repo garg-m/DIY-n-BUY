@@ -12,9 +12,7 @@ import { BasicTable } from "./components/partComponents/BasicTable";
 import { sortingTable } from "./components/partComponents/sortingTable";
 import { PaginationTable } from "./components/partComponents/PaginationTable"
 import NewProducts from "./components/partComponents/NewProducts";
-import { RowSelection } from "./components/partComponents/RowSelection";
 import {SimpleDropdownMenu} from "./components/partComponents/SimpleDropdownMenu"
-import { TableMovements } from "./components/partComponents/TableMovements";
 import Cart from "./components/pages/MenuPages/Cart";
 
 

@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import { render } from '@testing-library/react';
 import { useState } from "react";
 import Select from 'react-select';
-import { RowSelection } from "../../partComponents/RowSelection";
-import { TableMovements } from "../../partComponents/TableMovements";
 import { TableCase } from "../../partComponents/TableCase";
-import { TableCrystal } from "../../partComponents/TableCrystal"
 import { TableCrown } from "../../partComponents/TableCrown";
 import { TableBezelRing } from "../../partComponents/TableBezelRing";
 import { TableBezelInsert } from "../../partComponents/TableBezelInsert";
@@ -92,7 +89,6 @@ export default class ShopByModel extends Component {
     else if (this.state.selectedValue.value == 2) {
       return (
         <div>
-          <h1>Hello World</h1>
           <Select
             options={this.data}
             value={this.state.selectedValue}
@@ -107,7 +103,6 @@ export default class ShopByModel extends Component {
       return (
 
         <div>
-          <h1>Hello World</h1>
           <Select
             options={this.data}
             value={this.state.selectedValue}

@@ -1,8 +1,9 @@
 import { render } from '@testing-library/react';
 import React, { useState } from 'react'
+import { TableCase } from "../partComponents/TableCase";
+
 
 import Select from 'react-select';
-import { RowSelection } from './RowSelection';
 
 
 export const SimpleDropdownMenu = () => {
@@ -72,9 +73,7 @@ export const SimpleDropdownMenu = () => {
   <br />
   <b>Selected Value:</b>
   <pre>{JSON.stringify(selectedValue, null, 2)}</pre>
-  if(true){<RowSelection />}
-  
-
+  if(true){<TableCase/>}
   </>
     
   

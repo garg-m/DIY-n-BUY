@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import React, {useMemo, useState,useEffect} from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_BEZEL_INSERT from '../mockData/MOCK_DATA_BEZEL_INSERT.json';
 import {columnCase, groupedColumnsBezelInsert} from './columnsBezelInsert';
@@ -6,8 +6,31 @@ import './tableShopByParts.css'
 import { style, width } from "@mui/system";
 import { Link } from 'react-router-dom';
 export const TableBezelInsert=()=>{
+
+    const [tableData, setData] = useState([]);
+    
+    useEffect(() => {
+        fetch('http://localhost:3001/getAll/bezelInserts/',{
+            method: "GET",
+            mode: 'cors',
+            })
+          .then((response) => response.text()
+          .then(jsonContents=>{
+            console.log(JSON.parse(jsonContents))
+            setData(JSON.parse(jsonContents))
+            })
+          .catch((error) => {
+            console.error(error);
+          }));
+      }, []);
+
     const columns=useMemo(()=> groupedColumnsBezelInsert, [])
-    const data=useMemo(()=> MOCK_DATA_BEZEL_INSERT, [])
+    const data=useMemo(()=> tableData, [])
+
+    
+
+    
+
    const tableInstance= useTable({
         columns,
         data

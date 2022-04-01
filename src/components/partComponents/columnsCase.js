@@ -1,65 +1,55 @@
-export const columnsCase=[
-    {Header:'ID',
-    Footer:"ID",
-     accessor:"id"},
-    {Header:'Shape',
-    Footer:"Shape",
-    accessor:"Shape"},
-    {Header:'Width',
-    Footer:"Width",
-    accessor:"Width"},
-    {Header:'DialSize',
-    Footer:"DialSize",
-     accessor:"DialSize"},
-    {Header:'Material',
-    Footer:"Material",
-    accessor:"Material"},
-    {Header:'Finish',
-    Footer:"Finish",
-    accessor:"Finish"},
-    {Header:'Movement',
-    Footer:"Movement",
-     accessor:"Movement"},
-    {Header:'Color',
-    Footer:"Color",
-    accessor:"Color"},
-    {Header:'ImagePath',
-    Footer:"ImagePath",
-    accessor:"ImagePath"}
 
+export const groupedColumnsCase = [
+    {
+        Header: 'Id',
+        Footer: 'Id',
+        accessor: '_id'
+    },
+    {
+        Header: 'Details',
+        Footer: 'Details',
+        columns: [
+            {
+                Header: 'Shape',
+                Footer: "Shape",
+                accessor: "shape"
+            },
+            {
+                Header: 'Width',
+                Footer: "Width",
+                accessor: "width"
+            },
+            {
+                Header: 'DialSize',
+                Footer: "DialSize",
+                accessor: "dialsize"
+            },
+            {
+                Header: 'Material',
+                Footer: "Material",
+                accessor: "material"
+            },
+            {
+                Header: 'Finish',
+                Footer: "Finish",
+                accessor: "finish"
+            },
+            {
+                Header: 'Movement',
+                Footer: "Movement",
+                accessor: "movements"
+            },
+            {
+                Header: 'Color',
+                Footer: "Color",
+                accessor: "color"
+            },
+            {
+                Header: 'ImagePath',
+                Footer: "ImagePath",
+                accessor: "imagepath"
+            }
 
-]
-export const groupedColumnsCase=[
-    {Header:'Id',
-Footer:'Id',
-accessor:'id'},
-    {Header:'Details',
-Footer:'Details',
-columns:[
-    {Header:'Shape',
-    Footer:"Shape",
-    accessor:"Shape"},
-    {Header:'Width',
-    Footer:"Width",
-    accessor:"Width"},
-    {Header:'DialSize',
-    Footer:"DialSize",
-     accessor:"DialSize"},
-    {Header:'Material',
-    Footer:"Material",
-    accessor:"Material"},
-    {Header:'Finish',
-    Footer:"Finish",
-    accessor:"Finish"},
-    {Header:'Movement',
-    Footer:"Movement",
-     accessor:"Movement"},
-    {Header:'Color',
-    Footer:"Color",
-    accessor:"Color"},
-    {Header:'ImagePath',
-    Footer:"ImagePath",
-    accessor:"ImagePath"}
-    
-]}
+        ]
+    }
 ]
