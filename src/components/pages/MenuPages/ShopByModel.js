@@ -196,7 +196,9 @@ export default class ShopByModel extends Component{
           
             />
             <TableChapterRing />
+
             </div>
+            
         )
         }
         else if(this.state.selectedValue.value==9){
