@@ -11,10 +11,7 @@ import { TableDial } from "../../partComponents/TableDial";
 import { TableStrap } from "../../partComponents/TableStrap";
 import { TableHand } from "../../partComponents/TableHand";
 import { VisualizerSegment } from "../../Visualizer/VisualizerSegment";
-<<<<<<< HEAD
-=======
 import "./ShopByParts.css"
->>>>>>> 30776657db5959ff7eac03bd14e7d4214f46471a
 
 
 export default class ShopByParts extends Component {
@@ -76,9 +73,6 @@ export default class ShopByParts extends Component {
       return (
 
         <div>
-<<<<<<< HEAD
-=======
-          <h1>Hello World</h1>
           <Select
             options={this.data}
             value={this.state.selectedValue}
@@ -90,7 +84,7 @@ export default class ShopByParts extends Component {
           <div id = "SideBySide">
 
           <div > 
-          <RowSelection />
+          <TableCase />
           </div>
           <div >
           <VisualizerSegment />
@@ -108,7 +102,6 @@ export default class ShopByParts extends Component {
 
         <div>
           <h1>Hello World</h1>
->>>>>>> 30776657db5959ff7eac03bd14e7d4214f46471a
           <Select
             options={this.data}
             value={this.state.selectedValue}
@@ -120,35 +113,6 @@ export default class ShopByParts extends Component {
 
           <div > 
           <TableCase />
-<<<<<<< HEAD
-          <VisualizerSegment/>
-          
-=======
-          </div>
-          <div >
-          <VisualizerSegment />
-          </div>
-
-          </div>
->>>>>>> 30776657db5959ff7eac03bd14e7d4214f46471a
-        </div>
-      )
-
-<<<<<<< HEAD
-=======
-        <div>
-          <h1>Hello World</h1>
-          <Select
-            options={this.data}
-            value={this.state.selectedValue}
-            onChange={this.handleChange}
-
-
-          />
-          <div id = "SideBySide">
-
-          <div > 
-          <TableCrystal />
           </div>
           <div >
           <VisualizerSegment />
@@ -157,7 +121,6 @@ export default class ShopByParts extends Component {
           </div>
         </div>
       )
->>>>>>> 30776657db5959ff7eac03bd14e7d4214f46471a
     }
     else if (this.state.selectedValue.value == 2) {
       return (
@@ -172,16 +135,12 @@ export default class ShopByParts extends Component {
 
           <div > 
           <TableCrown />
-<<<<<<< HEAD
-          <VisualizerSegment/>
-=======
           </div>
           <div >
           <VisualizerSegment />
           </div>
 
           </div>
->>>>>>> 30776657db5959ff7eac03bd14e7d4214f46471a
         </div>
       )
     }
@@ -196,10 +155,6 @@ export default class ShopByParts extends Component {
 
 
           />
-<<<<<<< HEAD
-          <TableBezelRing/>
-          <VisualizerSegment/>
-=======
           <div id = "SideBySide">
 
           <div > 
@@ -210,7 +165,6 @@ export default class ShopByParts extends Component {
           </div>
 
           </div>
->>>>>>> 30776657db5959ff7eac03bd14e7d4214f46471a
         </div>
       )
     }
@@ -230,9 +184,6 @@ export default class ShopByParts extends Component {
 
           <div > 
           <TableBezelInsert />
-<<<<<<< HEAD
-          <VisualizerSegment/>
-=======
           </div>
           <div >
           <VisualizerSegment />
@@ -240,7 +191,6 @@ export default class ShopByParts extends Component {
 
           </div>
           
->>>>>>> 30776657db5959ff7eac03bd14e7d4214f46471a
         </div>
       )
     }
@@ -260,16 +210,12 @@ export default class ShopByParts extends Component {
 
           <div > 
           <TableChapterRing />
-<<<<<<< HEAD
-          <VisualizerSegment/>
-=======
           </div>
           <div >
           <VisualizerSegment />
           </div>
 
           </div>
->>>>>>> 30776657db5959ff7eac03bd14e7d4214f46471a
         </div>
       )
     }
@@ -288,16 +234,12 @@ export default class ShopByParts extends Component {
 
           <div > 
           <TableDial />
-<<<<<<< HEAD
-          <VisualizerSegment/>
-=======
           </div>
           <div >
           <VisualizerSegment />
           </div>
 
           </div>
->>>>>>> 30776657db5959ff7eac03bd14e7d4214f46471a
         </div>
       )
     }
@@ -316,16 +258,12 @@ export default class ShopByParts extends Component {
 
           <div > 
           <TableStrap />
-<<<<<<< HEAD
-          <VisualizerSegment/>
-=======
           </div>
           <div >
           <VisualizerSegment />
           </div>
 
           </div>
->>>>>>> 30776657db5959ff7eac03bd14e7d4214f46471a
         </div>
       )
     }
@@ -343,12 +281,6 @@ export default class ShopByParts extends Component {
 
           <div > 
           <TableHand />
-<<<<<<< HEAD
-          <VisualizerSegment/>
-        </div>
-      )
-    }
-=======
           </div>
           <div >
           <VisualizerSegment />
@@ -358,36 +290,5 @@ export default class ShopByParts extends Component {
         </div>
       )
     }
-
-    else {
-      return (<div>
-                  <h1>Hello World</h1>
-
-        <Select
-          options={this.data}
-          value={this.state.selectedValue}
-          onChange={this.handleChange}
-
-
-        />
-        <div id = "SideBySide">
-
-          <div > 
-          <TableMovements />
-          </div>
-          <div >
-          <VisualizerSegment />
-          </div>
-
-          </div>
-      </div>)
-    }
-
-
-
-
-
-
->>>>>>> 30776657db5959ff7eac03bd14e7d4214f46471a
   }
 }

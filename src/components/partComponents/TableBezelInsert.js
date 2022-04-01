@@ -25,7 +25,7 @@ export const TableBezelInsert=()=>{
       }, []);
 
     const columns=useMemo(()=> groupedColumnsBezelInsert, [])
-    const data=useMemo(()=> tableData, [])
+    const data=useMemo(()=> MOCK_DATA_BEZEL_INSERT, [])
 
     
 

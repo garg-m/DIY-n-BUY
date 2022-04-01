@@ -1,8 +1,12 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
+import MOCK_DATA_CASE from '../mockData/MOCK_DATA_CASE.json';
 import { groupedColumnsCase } from './columnsCase';
+
 import './tableShopByParts.css'
+import { style, width } from "@mui/system";
 import { Link } from 'react-router-dom';
+import reactDom from "react-dom";
 export const TableCase = () => {
 
     const [tableData, setData] = useState([]);
@@ -24,7 +28,7 @@ export const TableCase = () => {
     }, []);
 
     const columns = useMemo(() => groupedColumnsCase, [])
-    const data = useMemo(() => tableData, [])
+    const data = useMemo(() => MOCK_DATA_CASE, [])
 
     const tableInstance = useTable({
         columns,

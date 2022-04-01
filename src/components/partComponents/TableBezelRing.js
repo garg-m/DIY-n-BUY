@@ -26,7 +26,7 @@ export const TableBezelRing=()=>{
       }, []);
 
       const columns=useMemo(()=> groupedColumnsBezelRing, [])
-    const data=useMemo(()=> tableData, [])
+    const data=useMemo(()=> MOCK_DATA_BEZEL_RING, [])
 
    const tableInstance= useTable({
         columns,

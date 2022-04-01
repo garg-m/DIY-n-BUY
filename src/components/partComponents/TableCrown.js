@@ -25,7 +25,7 @@ export const TableCrown=()=>{
       }, []);
 
       const columns=useMemo(()=> groupedColumnsCrown, [])
-      const data=useMemo(()=> tableData, [])
+      const data=useMemo(()=> MOCK_DATA_CROWN, [])
       
    const tableInstance= useTable({
         columns,

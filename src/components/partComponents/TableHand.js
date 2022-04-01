@@ -25,7 +25,7 @@ export const TableHand=()=>{
       }, []);
 
       const columns=useMemo(()=> groupedColumnsHand, [])
-    const data=useMemo(()=> tableData, [])
+    const data=useMemo(()=> MOCK_DATA_HAND, [])
    const tableInstance= useTable({
         columns,
         data

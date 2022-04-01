@@ -26,7 +26,7 @@ export const TableChapterRing=()=>{
       }, []);
 
       const columns=useMemo(()=> groupedColumnsChapterRing, [])
-      const data=useMemo(()=> tableData, [])
+      const data=useMemo(()=> MOCK_DATA_CHAPTER_RING, [])
    const tableInstance= useTable({
         columns,
         data

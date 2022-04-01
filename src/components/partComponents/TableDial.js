@@ -25,7 +25,7 @@ export const TableDial=()=>{
       }, []);
 
       const columns=useMemo(()=> groupedColumnsDial, [])
-      const data=useMemo(()=> tableData, [])
+      const data=useMemo(()=> MOCK_DATA_DIAL, [])
       
    const tableInstance= useTable({
         columns,

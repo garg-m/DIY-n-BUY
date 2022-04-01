@@ -24,7 +24,7 @@ export const TableStrap=()=>{
       }, []);
 
     const columns=useMemo(()=> groupedColumnsStrap, [])
-    const data=useMemo(()=> tableData, [])
+    const data=useMemo(()=> MOCK_DATA_STRAP, [])
 
    const tableInstance= useTable({
         columns,
