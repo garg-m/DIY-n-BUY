@@ -13,6 +13,8 @@ import { TableChapterRing } from "../../partComponents/TableChapterRing";
 import { TableDial } from "../../partComponents/TableDial";
 import { TableStrap } from "../../partComponents/TableStrap";
 import { TableHand } from "../../partComponents/TableHand";
+import { VisualizerSegment } from "../../Visualizer/VisualizerSegment";
+import "./ShopByParts.css"
 
 
 export default class ShopByParts extends Component {
@@ -93,8 +95,20 @@ export default class ShopByParts extends Component {
             onChange={this.handleChange}
 
 
+          
           />
+          <div id = "SideBySide">
+
+          <div > 
           <RowSelection />
+          </div>
+          <div >
+          <VisualizerSegment />
+          </div>
+
+          </div>
+          
+
         </div>
       )
 
@@ -111,7 +125,16 @@ export default class ShopByParts extends Component {
 
 
           />
+          <div id = "SideBySide">
+
+          <div > 
           <TableCase />
+          </div>
+          <div >
+          <VisualizerSegment />
+          </div>
+
+          </div>
         </div>
       )
     }
@@ -127,7 +150,16 @@ export default class ShopByParts extends Component {
 
 
           />
+          <div id = "SideBySide">
+
+          <div > 
           <TableCrystal />
+          </div>
+          <div >
+          <VisualizerSegment />
+          </div>
+
+          </div>
         </div>
       )
     }
