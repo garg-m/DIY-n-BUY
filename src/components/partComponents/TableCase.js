@@ -105,7 +105,7 @@ export const TableCase=()=>{
             </tbody>
             
         </table>
-        <div align="center">
+        <div >
             <span>
                 Page{' '}
                 <strong>
