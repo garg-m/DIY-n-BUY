@@ -147,7 +147,6 @@ export default class ShopByModel extends Component {
 
           />
           <TableCrown />
-          <visualizerSegment />
         </div>
       )
     }
