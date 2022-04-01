@@ -172,10 +172,17 @@ export default class ShopByParts extends Component {
             options={this.data}
             value={this.state.selectedValue}
             onChange={this.handleChange}
-
-
           />
+          <div id = "SideBySide">
+
+          <div > 
           <TableCrown />
+          </div>
+          <div >
+          <VisualizerSegment />
+          </div>
+
+          </div>
         </div>
       )
     }
