@@ -301,7 +301,16 @@ export default class ShopByParts extends Component {
 
 
           />
+          <div id = "SideBySide">
+
+          <div > 
           <TableStrap />
+          </div>
+          <div >
+          <VisualizerSegment />
+          </div>
+
+          </div>
         </div>
       )
     }
@@ -317,7 +326,17 @@ export default class ShopByParts extends Component {
 
 
           />
+
+          <div id = "SideBySide">
+
+          <div > 
           <TableHand />
+          </div>
+          <div >
+          <VisualizerSegment />
+          </div>
+
+          </div>
         </div>
       )
     }
