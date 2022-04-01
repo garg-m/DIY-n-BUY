@@ -3,6 +3,7 @@ import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_HAND from '../mockData/MOCK_DATA_HAND.json';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 import { columnsHand, groupedColumnsHand } from "./columnsHand";
 export const TableHand=()=>{
     const columns=useMemo(()=> groupedColumnsHand, [])
@@ -59,7 +60,7 @@ export const TableHand=()=>{
                         prepareRow(row)
                         return(
                             <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
-                            localStorage.setItem('row click',CircularJSON.stringify(row))}}>
+                            localStorage.setItem('row click Hand',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
@@ -98,6 +99,9 @@ export const TableHand=()=>{
             </span>
             <button onClick={()=>gotoPage(0)}disabled ={!canPreviousPage}>{'<<'}</button>
             <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Previous</button>
+            <Link to="/Cart">
+            <button onClick={()=>localStorage.getItem('row click Hand')} >Cart</button>
+            </Link>
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
         </div>

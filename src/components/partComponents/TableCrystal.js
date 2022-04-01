@@ -4,6 +4,7 @@ import MOCK_DATA_CRYSTAL from '../mockData/MOCK_DATA_CRYSTAL.json';
 import {columnCrystal, groupedColumnsCrystal} from './columnsCrystal';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 export const TableCrystal=()=>{
     const columns=useMemo(()=> groupedColumnsCrystal, [])
     const data=useMemo(()=> MOCK_DATA_CRYSTAL, [])
@@ -58,12 +59,18 @@ export const TableCrystal=()=>{
                     page.map(row => {
                         prepareRow(row)
                         return(
-                            <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
-                            localStorage.setItem('row click',CircularJSON.stringify(row))}}>
+                            <tr {...row.getRowProps()} onClick={()=>{
+                            localStorage.setItem('row click Crystal',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
                                         {cell.render('Cell')}
+                                        
+                                        return(
+                                            <div>
+                                              <img src="https://drive.google.com/uc?export=view&id=13UjJskzgOjdIAPrQh4vitW-mQPZOe-oZ" alt="image" width="80" height="80"/>
+                                            </div>
+                                          );
 
                                         </td>
 
@@ -98,6 +105,13 @@ export const TableCrystal=()=>{
             </span>
             <button onClick={()=>gotoPage(0)}disabled ={!canPreviousPage}>{'<<'}</button>
             <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Previous</button>
+            <Link to="/Cart">
+            <button onClick={()=>localStorage.getItem('row click Crystal')} >Cart</button>
+            </Link>
+           
+            
+            
+
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
         </div>

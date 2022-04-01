@@ -250,6 +250,7 @@ export default class ShopByModel extends Component{
 
         else{
             return(<div>
+                  <h1>Hello World</h1>
                 <Select 
                options={this.data}
                value={this.state.selectedValue}

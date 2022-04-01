@@ -4,6 +4,7 @@ import MOCK_DATA_BEZEL_INSERT from '../mockData/MOCK_DATA_BEZEL_INSERT.json';
 import {columnCase, groupedColumnsBezelInsert} from './columnsBezelInsert';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 export const TableBezelInsert=()=>{
     const columns=useMemo(()=> groupedColumnsBezelInsert, [])
     const data=useMemo(()=> MOCK_DATA_BEZEL_INSERT, [])
@@ -58,8 +59,8 @@ export const TableBezelInsert=()=>{
                     page.map(row => {
                         prepareRow(row)
                         return(
-                            <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
-                            localStorage.setItem('row click',CircularJSON.stringify(row))}}>
+                            <tr {...row.getRowProps()} onClick={()=>{
+                            localStorage.setItem('row click BezelInsert',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
@@ -98,6 +99,9 @@ export const TableBezelInsert=()=>{
             </span>
             <button onClick={()=>gotoPage(0)}disabled ={!canPreviousPage}>{'<<'}</button>
             <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Previous</button>
+            <Link to="/Cart">
+            <button onClick={()=>localStorage.getItem('row click BezelInsert')} >Cart</button>
+            </Link>
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
         </div>

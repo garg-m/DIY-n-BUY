@@ -3,6 +3,7 @@ import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_DIAL from '../mockData/MOCK_DATA_CHAPTER_RING.json';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 import { columnDial,groupedColumnsDial } from "./columnsDial";
 export const TableDial=()=>{
     const columns=useMemo(()=> groupedColumnsDial, [])
@@ -59,7 +60,7 @@ export const TableDial=()=>{
                         prepareRow(row)
                         return(
                             <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
-                            localStorage.setItem('row click',CircularJSON.stringify(row))}}>
+                            localStorage.setItem('row click Dial',CircularJSON.stringify(row.orginal))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
@@ -98,6 +99,9 @@ export const TableDial=()=>{
             </span>
             <button onClick={()=>gotoPage(0)}disabled ={!canPreviousPage}>{'<<'}</button>
             <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Previous</button>
+            <Link to="/Cart">
+            <button onClick={()=>localStorage.getItem('row click Dial')} >Cart</button>
+            </Link>
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
         </div>

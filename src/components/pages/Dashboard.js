@@ -1,12 +1,12 @@
 import { Button, CssBaseline, Grid, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ChangePassword from './Auth/ChangePassword';
-
+import { Link } from 'react-router-dom';
 const Dashboard = () => {
   const navigate = useNavigate()
   const handleLogout = () => {
     console.log("Logout Clicked");
-    navigate('LoginReg')
+    navigate('/')
   }
   return <>
     <CssBaseline />
@@ -15,7 +15,7 @@ const Dashboard = () => {
         <h1>Dashboard</h1>
         <Typography variant='h5'>Email: rayaprolu.kireeti@gmail.com</Typography>
         <Typography variant='h6'>Name: Kireeti</Typography>
-        <Button variant='contained' color='warning' size='large' onClick={handleLogout} sx={{ mt: 8 }}>Logout</Button>
+        <Button  id='Logout' variant='contained' color='warning' size='large' onClick={handleLogout} sx={{ mt: 8 }}>Logout</Button>
       </Grid>
       <Grid item sm={8}>
         <ChangePassword />

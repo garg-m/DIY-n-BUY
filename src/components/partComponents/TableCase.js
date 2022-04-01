@@ -5,6 +5,7 @@ import {columnCase, groupedColumnsCase} from './columnsCase';
 
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 import reactDom from "react-dom";
 export const TableCase=()=>{
 
@@ -82,8 +83,8 @@ export const TableCase=()=>{
                     page.map(row => {
                         prepareRow(row)
                         return(
-                            <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
-                            localStorage.setItem('row click',CircularJSON.stringify(row))}}>
+                            <tr {...row.getRowProps()} onClick={()=>{
+                            localStorage.setItem('row click Case',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
@@ -122,6 +123,9 @@ export const TableCase=()=>{
             </span>
             <button onClick={()=>gotoPage(0)}disabled ={!canPreviousPage}>{'<<'}</button>
             <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Previous</button>
+            <Link to="/Cart">
+            <button onClick={()=>localStorage.getItem('row click Case')} >Cart</button>
+            </Link>
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
         </div>

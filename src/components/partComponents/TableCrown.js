@@ -4,6 +4,7 @@ import MOCK_DATA_CROWN from '../mockData/MOCK_DATA_CROWN.json';
 import {columnCase, groupedColumnsCrown} from './columnsCrown';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
+import { Link } from 'react-router-dom';
 export const TableCrown=()=>{
     const columns=useMemo(()=> groupedColumnsCrown, [])
     const data=useMemo(()=> MOCK_DATA_CROWN, [])
@@ -58,8 +59,8 @@ export const TableCrown=()=>{
                     page.map(row => {
                         prepareRow(row)
                         return(
-                            <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
-                            localStorage.setItem('row click',CircularJSON.stringify(row))}}>
+                            <tr {...row.getRowProps()} onClick={()=>{console.log('row click crown', row);
+                            localStorage.setItem('row click crown',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
@@ -98,6 +99,9 @@ export const TableCrown=()=>{
             </span>
             <button onClick={()=>gotoPage(0)}disabled ={!canPreviousPage}>{'<<'}</button>
             <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Previous</button>
+            <Link to="/Cart">
+            <button onClick={()=>localStorage.getItem('row click crown')} >Cart</button>
+            </Link>
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
         </div>
