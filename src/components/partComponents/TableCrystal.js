@@ -65,13 +65,6 @@ export const TableCrystal=()=>{
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
                                         {cell.render('Cell')}
-                                        
-                                        return(
-                                            <div>
-                                              <img src="https://drive.google.com/uc?export=view&id=13UjJskzgOjdIAPrQh4vitW-mQPZOe-oZ" alt="image" width="80" height="80"/>
-                                            </div>
-                                          );
-
                                         </td>
 
                                     })
