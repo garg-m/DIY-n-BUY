@@ -350,8 +350,16 @@ export default class ShopByParts extends Component {
 
 
         />
+        <div id = "SideBySide">
 
-        <TableMovements />
+          <div > 
+          <TableMovements />
+          </div>
+          <div >
+          <VisualizerSegment />
+          </div>
+
+          </div>
       </div>)
     }
 
