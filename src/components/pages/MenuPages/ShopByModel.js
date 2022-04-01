@@ -31,42 +31,30 @@ export default class ShopByModel extends Component {
       },
       {
         value: 2,
-        label: "Case Back"
-      },
-      {
-        value: 3,
-        label: "Movements"
-      },
-      {
-        value: 4,
-        label: "Crystal"
-      },
-      {
-        value: 5,
         label: "Crown"
       },
       {
-        value: 6,
+        value: 3,
         label: "BezelRing"
       },
       {
-        value: 7,
+        value: 4,
         label: "BezelInsert"
       },
       {
-        value: 8,
+        value: 5,
         label: "ChapterRing"
       },
       {
-        value: 9,
+        value: 6,
         label: "Dial"
       },
       {
-        value: 10,
+        value: 7,
         label: "Strap"
       },
       {
-        value: 11,
+        value: 8,
         label: "Hand"
       }
     ]
@@ -85,25 +73,23 @@ export default class ShopByModel extends Component {
   }
   handleChange = function (obj) { this.setState({ selectedValue: obj });}
   render() {
-    if (this.state.selectedValue.value == 2) {
+    if (this.state.selectedValue.value == 1) {
       return (
 
         <div>
-          <h1>Hello World</h1>
           <Select
             options={this.data}
             value={this.state.selectedValue}
             onChange={this.handleChange}
-
-
           />
           <TableCase />
+          <VisualizerSegment />
         </div>
 
       )
 
     }
-    else if (this.state.selectedValue.value == 1) {
+    else if (this.state.selectedValue.value == 2) {
       return (
         <div>
           <h1>Hello World</h1>
@@ -112,9 +98,23 @@ export default class ShopByModel extends Component {
             value={this.state.selectedValue}
             onChange={this.handleChange}
           />
+          <TableCrown />
+          <VisualizerSegment/>
+        </div>
+      )
+    }
+    else if (this.state.selectedValue.value == 3) {
+      return (
 
-          <TableCase />
-          <VisualizerSegment />
+        <div>
+          <h1>Hello World</h1>
+          <Select
+            options={this.data}
+            value={this.state.selectedValue}
+            onChange={this.handleChange}
+          />
+          <TableBezelRing/>
+          <VisualizerSegment/>
         </div>
       )
     }
@@ -122,15 +122,13 @@ export default class ShopByModel extends Component {
       return (
 
         <div>
-          <h1>Hello World</h1>
           <Select
             options={this.data}
             value={this.state.selectedValue}
             onChange={this.handleChange}
-
-
           />
-          <TableCrystal />
+          <TableBezelInsert />
+          <VisualizerSegment/>
         </div>
       )
     }
@@ -138,15 +136,55 @@ export default class ShopByModel extends Component {
       return (
 
         <div>
-          <h1>Hello World</h1>
           <Select
             options={this.data}
             value={this.state.selectedValue}
             onChange={this.handleChange}
-
-
           />
-          <TableCrown />
+          <TableChapterRing />
+          <VisualizerSegment/>
+        </div>
+      )
+    }
+    else if (this.state.selectedValue.value == 6) {
+      return (
+
+        <div>
+          <Select
+            options={this.data}
+            value={this.state.selectedValue}
+            onChange={this.handleChange}
+          />
+          <TableDial/>
+          <VisualizerSegment/>
+        </div>
+      )
+    }
+    else if (this.state.selectedValue.value == 7) {
+      return (
+
+        <div>
+          <Select
+            options={this.data}
+            value={this.state.selectedValue}
+            onChange={this.handleChange}
+          />
+          <TableStrap />
+          <VisualizerSegment/>
+        </div>
+      )
+    }
+    else if (this.state.selectedValue.value == 8) {
+      return (
+
+        <div>
+          <Select
+            options={this.data}
+            value={this.state.selectedValue}
+            onChange={this.handleChange}
+          />
+          <TableHand/>
+          <VisualizerSegment/>
         </div>
       )
     }
