@@ -68,7 +68,7 @@ export const TableCrystal=()=>{
                                         
                                         return(
                                             <div>
-                                              <img src="https://drive.google.com/thumbnail?id=13UjJskzgOjdIAPrQh4vitW-mQPZOe-oZ" alt="image" />
+                                              <img src="https://drive.google.com/uc?export=view&id=13UjJskzgOjdIAPrQh4vitW-mQPZOe-oZ" alt="image" />
                                             </div>
                                           );
 
