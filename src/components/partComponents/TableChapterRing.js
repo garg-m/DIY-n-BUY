@@ -1,3 +1,4 @@
+import {Grid, Card, Typography, Tabs, Tab, Box} from '@mui/material'
 import React, {useMemo} from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_CHAPTER_RING from '../mockData/MOCK_DATA_CHAPTER_RING.json';
@@ -81,7 +82,7 @@ export const TableChapterRing=()=>{
             </tbody>
             
         </table>
-        <div align="left">
+        <div align="center">
             <span>
                 Page{' '}
                 <strong>
@@ -105,6 +106,10 @@ export const TableChapterRing=()=>{
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
         </div>
+
+   
+
+
         </>
     )
 }

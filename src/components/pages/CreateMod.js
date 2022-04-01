@@ -23,8 +23,8 @@ const CreateMod = () => {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <img src='https://media.istockphoto.com/photos/gears-and-cogs-in-clockwork-watch-mechanism-craft-and-precision-picture-id1225074755?k=20&m=1225074755&s=612x612&w=0&h=BTIcCHhy7nieAWhfhjBcaTfr82EgMldDu9jn79e5C-Y=' height="400px"  width="768" object-fit = "center"/>
-        <img src='https://media.istockphoto.com/photos/inside-the-clock-picture-id94916159?k=20&m=94916159&s=612x612&w=0&h=zc_vLXdAfnzo1xQA-bQVMx_MJ7YD6w3B5vgq0t2SqXs=' height="400px" width="768" object-fit = "center"/>
+        <img src='https://media.istockphoto.com/photos/gears-and-cogs-in-clockwork-watch-mechanism-craft-and-precision-picture-id1225074755?k=20&m=1225074755&s=612x612&w=0&h=BTIcCHhy7nieAWhfhjBcaTfr82EgMldDu9jn79e5C-Y=' height="400px"  width="765" object-fit = "center"/>
+        <img src='https://media.istockphoto.com/photos/inside-the-clock-picture-id94916159?k=20&m=94916159&s=612x612&w=0&h=zc_vLXdAfnzo1xQA-bQVMx_MJ7YD6w3B5vgq0t2SqXs=' height="400px" width="765" object-fit = "center"/>
 
 
         <div ref={node}>

@@ -105,6 +105,8 @@ export default class ShopByParts extends Component{
         }
         else if(this.state.selectedValue.value==1){
           return(
+
+            
             
             <div>
                 <h1>Hello World</h1>
