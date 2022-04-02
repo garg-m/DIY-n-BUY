@@ -1,22 +1,20 @@
 import { getAccordionDetailsUtilityClass } from "@mui/material";
 import React from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
-class Cart extends React.Component{
+import ShowCart from "./showCart";
+const Cart=()=>{
     
-    render(){
+    const handleClearCart=(e)=>{
+        localStorage.clear()
+        window.location.reload()
         
-        
-       
-           return(Object.keys(localStorage).map(k => localStorage.getItem(k)))
-           
-          
-            
-            
-            
-            
-        
-       
     }
-
+    return<>
+    <ShowCart />
+    <div>
+    <button onClick={handleClearCart}>clearCart</button>
+    </div>
+    
+    </>
 }
 export default Cart;
