@@ -4,6 +4,7 @@ import MOCK_DATA_STRAP from '../mockData/MOCK_DATA_STRAP.json';
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
 import { columnStrap, groupedColumnsStrap } from "./columnsStrap";
+import { Link } from 'react-router-dom';
 export const TableStrap=()=>{
     
     const [tableData, setData] = useState([]);
@@ -77,8 +78,8 @@ export const TableStrap=()=>{
                     page.map(row => {
                         prepareRow(row)
                         return(
-                            <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
-                            localStorage.setItem('row click',CircularJSON.stringify(row.original))}}>
+                            <tr {...row.getRowProps()} onClick={()=>{
+                            localStorage.setItem('row click strap',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
@@ -117,6 +118,9 @@ export const TableStrap=()=>{
             </span>
             <button onClick={()=>gotoPage(0)}disabled ={!canPreviousPage}>{'<<'}</button>
             <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Previous</button>
+            <Link to="/Cart">
+            <button  >Cart</button>
+            </Link>
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
         </div>
