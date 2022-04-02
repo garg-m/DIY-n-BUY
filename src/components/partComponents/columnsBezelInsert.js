@@ -1,11 +1,6 @@
 
 export const groupedColumnsBezelInsert = [
     {
-        Header: 'Id',
-        Footer: 'Id',
-        accessor: '_id'
-    },
-    {
         Header: 'Details',
         Footer: 'Details',
         columns: [
@@ -43,13 +38,7 @@ export const groupedColumnsBezelInsert = [
                 Header: 'Color',
                 Footer: "Color",
                 accessor: "color"
-            },
-            {
-                Header: 'ImagePath',
-                Footer: "ImagePath",
-                accessor: "imagepath"
             }
-
         ]
     }
 ]

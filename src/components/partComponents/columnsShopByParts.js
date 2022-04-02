@@ -1,11 +1,6 @@
 
 export const groupedColumns = [
     {
-        Header: 'Id',
-        Footer: 'Id',
-        accessor: '_id'
-    },
-    {
         Header: 'Details',
         Footer: 'Details',
         columns: [
@@ -23,13 +18,7 @@ export const groupedColumns = [
                 Header: 'Inscription',
                 Footer: "Inscription",
                 accessor: "inscription"
-            },
-            {
-                Header: 'ImagePath',
-                Footer: "ImagePath",
-                accessor: "imagePath"
             }
-
         ]
     }
 ]

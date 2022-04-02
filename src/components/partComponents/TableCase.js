@@ -2,11 +2,11 @@ import React, { useMemo, useState, useEffect } from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 import MOCK_DATA_CASE from '../mockData/MOCK_DATA_CASE.json';
 import { groupedColumnsCase } from './columnsCase';
-
 import './tableShopByParts.css'
 import { style, width } from "@mui/system";
 import { Link } from 'react-router-dom';
 import reactDom from "react-dom";
+import { VisualizerSegment } from "../Visualizer/VisualizerSegment";
 export const TableCase = () => {
 
     const [tableData, setData] = useState([]);
@@ -84,6 +84,8 @@ export const TableCase = () => {
                             prepareRow(row)
                             return (
                                 <tr {...row.getRowProps()} onClick={() => {
+                                    VisualizerSegment.changeImgSrc('case',row.original.imagepath)
+                                    console.log(row.original.imagepath)
                                     localStorage.setItem('row click Case', CircularJSON.stringify(row.original))
                                 }}>
                                     {

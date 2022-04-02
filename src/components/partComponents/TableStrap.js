@@ -78,7 +78,7 @@ export const TableStrap=()=>{
                         prepareRow(row)
                         return(
                             <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
-                            localStorage.setItem('row click',CircularJSON.stringify(row))}}>
+                            localStorage.setItem('row click',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
