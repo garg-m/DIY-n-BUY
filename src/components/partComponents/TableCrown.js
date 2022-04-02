@@ -119,7 +119,7 @@ export const TableCrown=()=>{
             <button onClick={()=>gotoPage(0)}disabled ={!canPreviousPage}>{'<<'}</button>
             <button onClick={()=>previousPage()} disabled={!canPreviousPage}>Previous</button>
             <Link to="/Cart">
-            <button onClick={()=>localStorage.getItem('row click crown')} >Cart</button>
+            <button  >Cart</button>
             </Link>
             <button onClick={()=>nextPage()} disabled={!canNextPage}>Next</button>
             <button onClick={()=>gotoPage(pageCount-1)}disabled ={!canNextPage}>{'>>'}</button>
