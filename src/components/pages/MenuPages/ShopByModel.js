@@ -68,7 +68,9 @@ export default class ShopByModel extends Component {
 
 
   }
-  handleChange = function (obj) { this.setState({ selectedValue: obj });}
+  handleChange = function (obj) { 
+    this.setState({ selectedValue: obj });
+  }
   render() {
     if (this.state.selectedValue.value == 1) {
       return (

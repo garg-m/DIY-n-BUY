@@ -86,7 +86,7 @@ export const TableCase = () => {
                                 <tr {...row.getRowProps()} onClick={() => {
                                     VisualizerSegment.changeImgSrc('case',row.original.imagepath)
                                     console.log(row.original.imagepath)
-                                    localStorage.setItem('row click Case', CircularJSON.stringify(row.original))
+                                    localStorage.setItem('selectedCase', CircularJSON.stringify(row.original))
                                 }}>
                                     {
                                         row.cells.map(cell => {

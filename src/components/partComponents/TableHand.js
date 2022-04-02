@@ -77,8 +77,8 @@ export const TableHand=()=>{
                     page.map(row => {
                         prepareRow(row)
                         return(
-                            <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
-                            localStorage.setItem('row click Hand',CircularJSON.stringify(row.original))}}>
+                            <tr {...row.getRowProps()} onClick={()=>{
+                            localStorage.setItem('selectedHands',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>

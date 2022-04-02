@@ -78,8 +78,8 @@ export const TableCrown=()=>{
                     page.map(row => {
                         prepareRow(row)
                         return(
-                            <tr {...row.getRowProps()} onClick={()=>{console.log('row click crown', row);
-                            localStorage.setItem('row click crown',CircularJSON.stringify(row.original))}}>
+                            <tr {...row.getRowProps()} onClick={()=>{
+                            localStorage.setItem('selectedCrown',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>

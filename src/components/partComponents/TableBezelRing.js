@@ -80,7 +80,7 @@ export const TableBezelRing=()=>{
                         prepareRow(row)
                         return(
                             <tr {...row.getRowProps()} onClick={()=>{
-                            localStorage.setItem('row click BezelRing',CircularJSON.stringify(row.original))}}>
+                            localStorage.setItem('selectedBezelRing',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>

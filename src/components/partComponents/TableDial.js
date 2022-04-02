@@ -78,8 +78,8 @@ export const TableDial=()=>{
                     page.map(row => {
                         prepareRow(row)
                         return(
-                            <tr {...row.getRowProps()} onClick={()=>{console.log('row click', row);
-                            localStorage.setItem('row click Dial',CircularJSON.stringify(row.orginal))}}>
+                            <tr {...row.getRowProps()} onClick={()=>{
+                            localStorage.setItem('selectedDial',CircularJSON.stringify(row.orginal))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>

@@ -10,9 +10,6 @@ const Menu = ({ open }) => {
       <a href="ShopByParts">
         Shop by Parts
       </a>
-      <a href="ShopByModel">
-        Shop by Model
-      </a>
       <a href="/NewProducts">
         New Products
       </a>
@@ -21,9 +18,6 @@ const Menu = ({ open }) => {
         </a>
       <a href="/Merchandise">
         Merchandise
-        </a>
-        <a href="/">
-        Configuration
         </a>
     </StyledMenu>
   )

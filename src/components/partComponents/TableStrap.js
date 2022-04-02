@@ -79,7 +79,7 @@ export const TableStrap=()=>{
                         prepareRow(row)
                         return(
                             <tr {...row.getRowProps()} onClick={()=>{
-                            localStorage.setItem('row click strap',CircularJSON.stringify(row.original))}}>
+                            localStorage.setItem('selectedStrap',CircularJSON.stringify(row.original))}}>
                                 {
                                     row.cells.map(cell =>{
                                        return <td{...cell.getCellProps()}>
