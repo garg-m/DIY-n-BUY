@@ -1,8 +1,12 @@
 import React from "react";
 const ShowCart=()=>{
     return(
-        Object.keys(localStorage).map(k=>localStorage.getItem(k))
+        <ul>
+        {Object.keys(localStorage).map((k) => {
+          return <p>{localStorage.getItem(k)}</p>
+        })}
+      </ul>
+       
     )
-
 }
 export default ShowCart;

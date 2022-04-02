@@ -12,7 +12,7 @@ const Cart=()=>{
     return<>
     <ShowCart />
     <div>
-    <button onClick={handleClearCart}>clearCart</button>
+    <button onClick={handleClearCart}>Clear</button>
     </div>
     
     </>
