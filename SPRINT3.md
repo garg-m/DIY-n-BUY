@@ -3,10 +3,8 @@ https://github.com/users/kireeti-r/projects/
 
 ###Progress Overview
 
-
 ###Working Screenshots
-![alt text](https://drive.google.com/uc?id=1g9dEEic5E4uUGigeRXmfhsSEk0fQKvT2)
-![alt text](https://drive.google.com/uc?id=1Kt5OgkUVZF1uaUPOwp85bD9gIxb52tnu)
-![alt text](https://drive.google.com/uc?id=1p0zwfmY1mDPrrfsVJYNreAwYN6tn6olu)
-![alt text](https://drive.google.com/uc?id=1NAPKpbftJNCqlZJ2ceQWVvDgWABDdAkj)
-![alt text](https://drive.google.com/uc?id=1lM9ZujwIFgazCl-_AMRH-bKEBnVXQHz5)
+![alt text](https://drive.google.com/uc?id=16t2hOhUtSik5gmmb2grcA8ZYX5rl7AKw)
+![alt text](https://drive.google.com/uc?id=11RYqkK5gW5rQjCHN4FE4ojN44Q-It_zUe)
+![alt text](https://drive.google.com/uc?id=1cm-EG38qc_faG8qRj2j_PRC27YHpYYqL)
+![alt text](https://drive.google.com/uc?id=1UwZcjATqB1TBYBq0imxB2TAVh8OGKq-t/)
