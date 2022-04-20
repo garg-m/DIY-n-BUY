@@ -136,7 +136,7 @@ export const TableCaseInventory = () => {
             </div>
             <div align="center">
                
-            <Link to="/admin">
+            <Link to="/admin/inventory/tablecaseinv">
      <button type="button">
           Add Parts!
      </button>
