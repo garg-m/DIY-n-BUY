@@ -10,6 +10,8 @@ import ResetPassword from "./components/pages/Auth/ResetPassword";
 import Dashboard from "./components/pages/Dashboard";
 import {SimpleDropdownMenu} from "./components/partComponents/SimpleDropdownMenu"
 import Cart from "./components/pages/MenuPages/Cart";
+import AdminLogin from "./components/Inventory/AdminLogin";
+import AdminLoginReg from "./components/Inventory/AdminLoginReg";
 
 
 
@@ -35,6 +37,7 @@ function App() {
         </Route>
         <Route path="/dashboard"  element={<Dashboard />} />
         <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
+        <Route path="/admin" element={<AdminLoginReg />} />
 
 
       </Routes>
