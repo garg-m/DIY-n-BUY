@@ -20,7 +20,7 @@ const AdminLogin = () => {
             console.log(actualData)
             document.getElementById('login-form').reset()
             setError({status:true, msg:'Login Successful', type:'success'})
-            navigate('/Dashboard') //to be changed
+            navigate('/admin/inventory') //to be changed
         }
         else{
             setError({status:true, msg:'All Fields are required', type:'error'})

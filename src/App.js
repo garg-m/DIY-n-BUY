@@ -14,6 +14,7 @@ import AdminLogin from "./components/Inventory/AdminLogin";
 import AdminLoginReg from "./components/Inventory/AdminLoginReg";
 import HomeAdmin from "./components/Inventory/HomeAdmin";
 import LayoutAdmin from "./components/Inventory/LayoutAdmin";
+import Inventory from "./components/Inventory/Inventory";
 
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
           <Route path="/admin/adminloginreg"  element={<AdminLoginReg />} />
          
           
-          
+          <Route path="/admin/inventory" element={<Inventory />} />
 
           
 
