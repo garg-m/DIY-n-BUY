@@ -32,7 +32,7 @@ export const TableCrownInventory = () => {
     }, []);
 
     const columns = useMemo(() => groupedColumnsCase, [])
-    const data = useMemo(() => MOCK_DATA_CASE, [])
+    const data = useMemo(() => MOCK_DATA_CROWN, [])
 
     const tableInstance = useTable({
         columns,
