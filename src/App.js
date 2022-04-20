@@ -12,7 +12,8 @@ import {SimpleDropdownMenu} from "./components/partComponents/SimpleDropdownMenu
 import Cart from "./components/pages/MenuPages/Cart";
 import AdminLogin from "./components/Inventory/AdminLogin";
 import AdminLoginReg from "./components/Inventory/AdminLoginReg";
-
+import HomeAdmin from "./components/Inventory/HomeAdmin";
+import LayoutAdmin from "./components/Inventory/LayoutAdmin";
 
 
 function App() {
@@ -32,12 +33,26 @@ function App() {
 
           <Route path="sendpasswordresetemail"  element={<SendPasswordResetEmail />} />
           <Route path="reset"  element={<ResetPassword />} />
+          <Route path="/dashboard"  element={<Dashboard />} />
 
 
         </Route>
-        <Route path="/dashboard"  element={<Dashboard />} />
+        
         <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
-        <Route path="/admin" element={<AdminLoginReg />} />
+        
+        
+        <Route path="/admin" element={<LayoutAdmin />}>
+          <Route index element={<HomeAdmin />} />
+          
+          <Route path="/admin/adminloginreg"  element={<AdminLoginReg />} />
+         
+          
+          
+
+          
+
+
+        </Route>
 
 
       </Routes>
