@@ -191,5 +191,23 @@ func Setup() *fiber.App {
 
 	})
 
+	app.Delete("/deelteAll/:part", func(c *fiber.Ctx) error {
+
+		//fmt.Println(partName)
+
+		query := bson.D{{}}
+		result, err := mg.Db.Collection("cases").DeleteOne(c.Context(), &query)
+		if err != nil {
+			return c.SendStatus(500)
+		}
+
+		if result.DeletedCount < 1 {
+			return c.SendStatus(404)
+		}
+
+		return c.Status(200).SendString("record deleted")
+
+	})
+
 	return app
 }
