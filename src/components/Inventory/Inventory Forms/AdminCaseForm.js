@@ -20,7 +20,10 @@ const AdminCaseForm = () => {
                 mode:'cors',
                 headers: {"Content-Type":"application/json charset=UTF-8"},
                 body: JSON.stringify(Case)
-            }).then((response) => {this.props.history.push('/admin/inventory/successpage')
+            }).then((response) => {
+                if(response.redirected){
+                    window.location.href = "/admin/inventory/successpage";
+                }
             })
     }
   return (
