@@ -14,6 +14,11 @@ const AdminCaseForm = () => {
             e.preventDefault()
             const Case={shape,width,dialsize,material,finish,movement,color}
             console.log(Case)
+            fetch('https://localhost:3000/create/Cases',{
+                method:'POST',
+                headers: {"Content-Type":"application/json charset=UTF-8"},
+                body: JSON.stringify(Case)
+            }).then(()=>{console.log('new case added')})
     }
   return (
       <div>
