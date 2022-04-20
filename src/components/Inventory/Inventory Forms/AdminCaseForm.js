@@ -10,11 +10,16 @@ const AdminCaseForm = () => {
     const[finish,setFinish]=useState('')
     const[movement,setMovement]=useState('')
     const[color, setColor]=useState('')
+    const handleSubmit=(e)=>{
+            e.preventDefault()
+            const Case={shape,width,dialsize,material,finish,movement,color}
+            console.log(Case)
+    }
   return (
       <div>
           <h2 align="center">Welcome Admin!!!</h2>
           <h3 align="center">Fill the form to add a new case!!!</h3>
-          <form align="center">
+          <form align="center" onSubmit={handleSubmit}>
               <div >
               <label>Shape</label>
         <input
@@ -87,7 +92,7 @@ const AdminCaseForm = () => {
         </div>
        
         <div>
-        <button>Add Part</button>
+        <button type='submit'>Add Part</button>
         </div>
         
         
