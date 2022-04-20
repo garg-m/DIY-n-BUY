@@ -1,6 +1,15 @@
 import React from 'react'
+import { useState } from 'react'
 
 const AdminCaseForm = () => {
+
+    const [shape, setShape]=useState('')
+    const [width, setWidth]=useState(0)
+    const[dialsize,setDialsize]=useState(0)
+    const[material, setMaterial]=useState('')
+    const[finish,setFinish]=useState('')
+    const[movement,setMovement]=useState('')
+    const[color, setColor]=useState('')
   return (
       <div>
           <h2 align="center">Welcome Admin!!!</h2>
@@ -11,6 +20,8 @@ const AdminCaseForm = () => {
         <input
         type="text"
         required
+        value={shape}
+        onChange={(e)=> setShape(e.target.value)}
         />
               </div>
               <div>
@@ -18,6 +29,8 @@ const AdminCaseForm = () => {
         <input
         type="number"
         required
+        value={width}
+        onChange={(e)=>setWidth(e.target.value)}
        
         />
               </div>
@@ -26,6 +39,8 @@ const AdminCaseForm = () => {
         <input
         type="number"
         required
+        value={dialsize}
+        onChange={(e)=>setDialsize(e.target.value)}
        
         />
         </div>
@@ -35,6 +50,8 @@ const AdminCaseForm = () => {
         <input
         type="text"
         required
+        value={material}
+        onChange={(e)=>setMaterial(e.target.value)}
        
         />
         </div>
@@ -43,6 +60,8 @@ const AdminCaseForm = () => {
         <input
         type="text"
         required
+        value={finish}
+        onChange={(e)=>setFinish(e.target.value)}
        
         /> 
         </div>
@@ -51,6 +70,8 @@ const AdminCaseForm = () => {
         <input
         type="text"
         required
+        value={movement}
+        onChange={(e)=>setMovement(e.target.value)}
        
         />
         </div>
@@ -59,6 +80,8 @@ const AdminCaseForm = () => {
         <input
         type="text"
         required
+        value={color}
+        onChange={(e)=>setColor(e.target.value)}
        
         />
         </div>
@@ -71,6 +94,8 @@ const AdminCaseForm = () => {
 
 
     </form>
+    
+ 
       </div>
     
   )
