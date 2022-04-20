@@ -21,7 +21,7 @@ const AdminCaseForm = () => {
                 headers: {"Content-Type":"application/json charset=UTF-8"},
                 body: JSON.stringify(Case)
             }).then((response) => {
-                if(response.redirected){
+                if(response){
                     window.location.href = "/admin/inventory/successpage";
                 }
             })
