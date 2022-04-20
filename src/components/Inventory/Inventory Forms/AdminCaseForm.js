@@ -8,17 +8,18 @@ const AdminCaseForm = () => {
     const[dialsize,setDialsize]=useState(0)
     const[material, setMaterial]=useState('')
     const[finish,setFinish]=useState('')
-    const[movement,setMovement]=useState('')
+    const[movements,setMovements]=useState('')
     const[color, setColor]=useState('')
     const handleSubmit=(e)=>{
             e.preventDefault()
-            const Case={shape,width,dialsize,material,finish,movement,color}
+            const Case={shape,width,dialsize,material,finish,movements,color}
             console.log(Case)
-            fetch('https://localhost:3000/create/Cases',{
+            fetch('http://localhost:3001/create/cases',{
                 method:'POST',
+                mode:'cors',
                 headers: {"Content-Type":"application/json charset=UTF-8"},
                 body: JSON.stringify(Case)
-            }).then(()=>{console.log('new case added')})
+            }).then((response) => {console.log(response.text())})
     }
   return (
       <div>
@@ -80,8 +81,8 @@ const AdminCaseForm = () => {
         <input
         type="text"
         required
-        value={movement}
-        onChange={(e)=>setMovement(e.target.value)}
+        value={movements}
+        onChange={(e)=>setMovements(e.target.value)}
        
         />
         </div>
