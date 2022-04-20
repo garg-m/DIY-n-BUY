@@ -3,7 +3,8 @@ import { render } from '@testing-library/react';
 import { useState } from "react";
 import Select from 'react-select';
 
-import { TableCase } from "../partComponents/TableCase";
+//import { TableCase } from "../partComponents/TableCase";
+import { TableCaseInventory } from "./Inventory Tables/TableCaseInventory";
 
 import { TableCrown } from "../partComponents/TableCrown";
 
@@ -92,7 +93,7 @@ export default class Inventory extends Component {
             
   
             <div > 
-            <TableCase />
+            <TableCaseInventory />
             </div>
             
   
@@ -118,7 +119,7 @@ export default class Inventory extends Component {
             
   
             <div > 
-            <TableCase />
+            <TableCaseInventory />
             </div>
             
   
