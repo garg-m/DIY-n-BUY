@@ -16,6 +16,7 @@ import HomeAdmin from "./components/Inventory/HomeAdmin";
 import LayoutAdmin from "./components/Inventory/LayoutAdmin";
 import Inventory from "./components/Inventory/Inventory";
 import AdminCaseForm from "./components/Inventory/Inventory Forms/AdminCaseForm";
+import FormSubmitted from "./components/Inventory/Inventory Forms/FormSubmitted";
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
           
           <Route path="/admin/inventory" element={<Inventory />} />
           <Route path="/admin/inventory/tablecaseinv" element={<AdminCaseForm />}/>
+          <Route path="/admin/inventory/successpage" element={<FormSubmitted />} />
 
           
 

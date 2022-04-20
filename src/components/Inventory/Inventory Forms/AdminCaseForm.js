@@ -12,6 +12,7 @@ const AdminCaseForm = () => {
     const[color, setColor]=useState('')
     const handleSubmit=(e)=>{
             e.preventDefault()
+            //this.props.history.push('/admin/inventory/successpage')
             const Case={shape,width,dialsize,material,finish,movements,color}
             console.log(Case)
             fetch('http://localhost:3001/create/cases',{
@@ -19,7 +20,8 @@ const AdminCaseForm = () => {
                 mode:'cors',
                 headers: {"Content-Type":"application/json charset=UTF-8"},
                 body: JSON.stringify(Case)
-            }).then((response) => {console.log(response.text())})
+            }).then((response) => {this.props.history.push('/admin/inventory/successpage')
+            })
     }
   return (
       <div>
