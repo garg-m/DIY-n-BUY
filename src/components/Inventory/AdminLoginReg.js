@@ -1,5 +1,6 @@
 import {Grid, Card, Typography, Tabs, Tab, Box} from '@mui/material'
-import watch from '../../images/watch.jpeg'
+//import watch from '../../images/watch.jpeg'
+import watch from '../../images/watchadmin2.jpg'
 import { useState } from 'react'
 //import UserLogin from './UserLogin'// to be changed
 //import Registration from './Registration'// to be changed
