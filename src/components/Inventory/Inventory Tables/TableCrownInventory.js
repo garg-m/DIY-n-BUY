@@ -12,6 +12,7 @@ import reactDom from "react-dom";
 import "./TableInventory.css"
 import {Grid, Card, Typography, Tabs, Tab, Box} from '@mui/material'
 export const TableCrownInventory = () => {
+    // xyz
 
     const [tableData, setData] = useState([]);
 
