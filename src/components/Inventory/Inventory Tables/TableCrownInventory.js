@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { useTable, useSortBy, usePagination, useRowSelect } from "react-table";
 //import MOCK_DATA_CASE from '../mockData/MOCK_DATA_CASE.json';
-import MOCK_DATA_CASE from '../../mockData/MOCK_DATA_CASE.json'
+import MOCK_DATA_CROWN from '../../mockData/MOCK_DATA_CROWN.json'
 //import { groupedColumnsCase } from './columnsCase';
 import { groupedColumnsCase } from "../../partComponents/columnsCase";
 //import './tableShopByParts.css'
@@ -16,7 +16,7 @@ export const TableCrownInventory = () => {
     const [tableData, setData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/getAll/cases/', {
+        fetch('http://localhost:3001/getAll/crowns/', {
             method: "GET",
             mode: 'cors',
         })
