@@ -6,7 +6,8 @@ import Select from 'react-select';
 //import { TableCase } from "../partComponents/TableCase";
 import { TableCaseInventory } from "./Inventory Tables/TableCaseInventory";
 
-import { TableCrown } from "../partComponents/TableCrown";
+//import { TableCrown } from "../partComponents/TableCrown";
+import { TableCrownInventory } from "./Inventory Tables/TableCrownInventory";
 
 import { TableBezelRing } from "../partComponents/TableBezelRing";
 
@@ -139,7 +140,7 @@ export default class Inventory extends Component {
             
   
             <div > 
-            <TableCrown />
+            <TableCrownInventory />
             </div>
            
   
