@@ -12,7 +12,7 @@ const NavBarAdmin = () => {
               </Typography>
               <Button component={NavLink} to='/admin' style={({isActive})=>{return {backgroundColor: isActive?'#6d1b7b':''}}} sx={{color:'white', textTransform:'none'}}>Home Admin</Button>
               <Button component={NavLink} to='/admin/inventory' style={({isActive})=>{return {backgroundColor: isActive?'#6d1b7b':''}}} sx={{color:'white',textTransform:'none' }} >Inventory</Button>
-              <Button component={NavLink} to='/admin/adminloginreg' style={({isActive})=>{return {backgroundColor: isActive?'#6d1b7b':''}}} sx={{color:'white',textTransform:'none' }} >Login/Register</Button>
+              <Button component={NavLink} to='/admin/adminloginreg' style={({isActive})=>{return {backgroundColor: isActive?'#6d1b7b':''}}} sx={{color:'white',textTransform:'none' }} >Login</Button>
               
               
 

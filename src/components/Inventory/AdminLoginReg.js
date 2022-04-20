@@ -4,7 +4,7 @@ import { useState } from 'react'
 //import UserLogin from './UserLogin'// to be changed
 //import Registration from './Registration'// to be changed
 import AdminLogin from './AdminLogin'
-import AdminReg from './AdminReg'
+//import AdminReg from './AdminReg'
 const TabPanel=(props)=>{
     const {children, value, index}=props
     return (
@@ -41,7 +41,7 @@ const AdminLoginReg = () => {
                   <Box sx={{borderBottom:1, borderColor:'divider'}}>
                       <Tabs value={value} textColor='secondary' indicatorColor='secondary' onChange={handleChange}>
                           <Tab label='Login' sx={{textTransform:'none', fontWeight:'bold'}}></Tab>
-                          <Tab label='Registration'sx={{textTransform:'none', fontWeight:'bold'}} ></Tab>
+                          {/* <Tab label='Registration'sx={{textTransform:'none', fontWeight:'bold'}} ></Tab> */}
 
 
                           
@@ -49,7 +49,7 @@ const AdminLoginReg = () => {
                       <TabPanel value={value} index={0}>
                           <AdminLogin /> 
                       </TabPanel>
-                      <TabPanel value={value} index={1}><AdminReg /></TabPanel>
+                      {/* <TabPanel value={value} index={1}><AdminReg /></TabPanel> */}
 
                   </Box>
               </Box>
