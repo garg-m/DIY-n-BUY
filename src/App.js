@@ -21,6 +21,8 @@ import AdminCrownForm from "./components/Inventory/Inventory Forms/AdminCrownFor
 import AdminBezelRingForm from "./components/Inventory/Inventory Forms/AdminBezelRingForm";
 import AdminHandForm from "./components/Inventory/Inventory Forms/AdminHandForm";
 import AdminBezelInsertForm from "./components/Inventory/Inventory Forms/AdminBezelInsertForm";
+import AdminChapterRingForm from "./components/Inventory/Inventory Forms/AdminChapterRingForm";
+
 
 
 function App() {
@@ -61,6 +63,7 @@ function App() {
           <Route path="/admin/inventory/tablecrowninv" element={<AdminBezelRingForm />}/>
           <Route path="/admin/inventory/tablehandinv" element={<AdminHandForm />}/>
           <Route path="/admin/inventory/tablebezelinsertinv" element={<AdminBezelInsertForm />}/>
+          <Route path="/admin/inventory/tablechapterringinv" element={<AdminChapterRingForm />}/>
           
 
 
