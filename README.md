@@ -8,13 +8,14 @@ The hobbyist can create fresh builds, save those for future modifications, share
 
 Today, the decision to own a mechanical watch is not a logical one. And yet, there is a broad community of watch enthusiasts who hunt for aftermarket parts and continue to surprise with creative builds. This holds true for many other kind of hobbyists, which is why our aim with this project is to standardize DIY visualization so that such cool pursuits continue to foster, with cool software to go with it.
 
-## Functionality GIFs
-
-
+## Functionality Video
+https://1drv.ms/v/s!AlqK0ZbULa0Hgq9idO6Qp7zQxNqMew?e=UA2AzR
 
 ## Cypress Test Video
+https://user-images.githubusercontent.com/33852995/164378573-d97ab0b8-9898-46d9-92cb-4bdae56929a8.mp4
 
 ## Backend Unit Test Video
+https://user-images.githubusercontent.com/33852995/164382688-6b78a702-f0ef-464e-a9bf-f1900f278a02.mp4
 
 ## Link to API documentation
 https://github.com/harsh-soni/DIY-n-BUY/wiki/API-endpoints
@@ -25,8 +26,8 @@ https://github.com/users/kireeti-r/projects/1
 ## Link to Sprint 4 Deliverables
 https://github.com/harsh-soni/DIY-n-BUY/blob/main/Sprint4.md
 
-## Frontend Team Members
 
+## Frontend Team Members
 Krishna Kireeti Rayaprolu- rayaprolu.k@ufl.edu -<br/>
 Mayank Garg- gargm@ufl.edu- <br/>
 
@@ -35,3 +36,5 @@ Srisharanya Injarapu- injarapu.s@ufl.edu- <br/>
 Harsh Soni- harshsoni@ufl.edu-  <br/>
 
 ## Deployment Specifics
+https://diy-n-buy.azurewebsites.net
+Student Tier used for Azure Subscribtion. And Github actions used for establishing the continuous deployment pipeline. Some more details shared in the functionality video.
