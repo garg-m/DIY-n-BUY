@@ -1,35 +1,17 @@
-## DIY-n-BUY
+## Sprint 4
 
-# Project Description
+# Description
 
-Our application is a web application built using React.js and Go. It allows for hobbyists to visualize their DIY assembly if individual parts and provides a platform for ordering all those parts with a single click. The project will demonstrate this functionality using wristwatch assembly, but can be extended to serve visualizations of machine parts, circuit assembly, modern furniture etc.
+For Sprint 4, we added functionality related to the admin/inventory manager. We added login functionality for the admin and inventory dashboard. If the admin chooses to add a new item to the inventory he can do it by filling a form. The form submission call a POST method in the backend and the page gets redirected to success page only if a response is received from the backend.
 
-The hobbyist can create fresh builds, save those for future modifications, share them with fellow hobbyists, or continue to purchase the items used in the build. The builder tool accounts for compatibility, interoperability as well as availability of parts, along with summarizing the cost and ways of reducing it, for instance-notifying the hobbyist if any parts were purchased before.
+We also added more features to the cart page. In the previous sprint, once the user selects the parts, they get printed in the cart page and only clear cart option was available. In this sprint, we added a new feature where the user can delete individual items from the cart.
 
-Today, the decision to own a mechanical watch is not a logical one. And yet, there is a broad community of watch enthusiasts who hunt for aftermarket parts and continue to surprise with most creative builds. This holds true for many other kind of hobbyists, which is why our aim with this project is to standardize DIY visualization so that such cool pursuits continue to foster, with cool software to go with it.
+We added Cypress tests for the front end for new functionalities. Cypress tests are added for Amin form submission pages and cart. 
 
-# Functionality Video
 
-# Cypress Test Video
+We are also successfully able to deploy the project.
 
-# Backend Unit Test Video
 
-# Link to API documentation
-
-# Link to Project Board
-
-# Link to Sprint 4 Deliverables
-
-# Frontend Team Members
-
-Krishna Kireeti Rayaprolu-rayaprolu.k@ufl.edu -<br/>
-Mayank Garg- gargm@ufl.edu- <br/>
-
-# Backend Team Members
-Srisharanya Injarapu- injarapu.s@ufl.edu- <br/>
-Harsh Soni- harshsoni@ufl.edu-  <br/>
-
-# Deployment Specifics
 
 
 
