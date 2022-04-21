@@ -22,8 +22,12 @@ import { TableStrap } from "../partComponents/TableStrap";
 import { TableHand } from "../partComponents/TableHand";
 import { TableDialInventory } from "./Inventory Tables/TableDialInventory";
 import { TableStrapInventory } from "./Inventory Tables/TableStrapInventory";
+<<<<<<< HEAD
 import { TableHandInventory } from "./Inventory Tables/TableHandInventory";
 import { TableChapterRing } from "../partComponents/TableChapterRing";
+=======
+import { TableHandsInventory } from "./Inventory Tables/TableHandInventory";
+>>>>>>> 226e56ba675637f769026f1c8858205e37d0432d
 import { TableChapterRingInventory } from "./Inventory Tables/TableChapterRingInventory";
 
 export default class Inventory extends Component {

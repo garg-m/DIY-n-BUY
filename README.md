@@ -17,14 +17,17 @@ Today, the decision to own a mechanical watch is not a logical one. And yet, the
 ## Backend Unit Test Video
 
 ## Link to API documentation
+https://github.com/harsh-soni/DIY-n-BUY/wiki/API-endpoints
 
 ## Link to Project Board
+https://github.com/users/kireeti-r/projects/1
 
 ## Link to Sprint 4 Deliverables
+https://github.com/harsh-soni/DIY-n-BUY/blob/main/Sprint4.md
 
 ## Frontend Team Members
 
-Krishna Kireeti Rayaprolu-rayaprolu.k@ufl.edu -<br/>
+Krishna Kireeti Rayaprolu- rayaprolu.k@ufl.edu -<br/>
 Mayank Garg- gargm@ufl.edu- <br/>
 
 ## Backend Team Members
