@@ -18,6 +18,7 @@ import Inventory from "./components/Inventory/Inventory";
 import AdminCaseForm from "./components/Inventory/Inventory Forms/AdminCaseForm";
 import FormSubmitted from "./components/Inventory/Inventory Forms/FormSubmitted";
 import AdminCrownForm from "./components/Inventory/Inventory Forms/AdminCrownForm";
+import AdminBezelRingForm from "./components/Inventory/Inventory Forms/AdminBezelRingForm";
 
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
           <Route path="/admin/inventory/tablecaseinv" element={<AdminCaseForm />}/>
           <Route path="/admin/inventory/successpage" element={<FormSubmitted />} />
           <Route path="/admin/inventory/tablecrowninv" element={<AdminCrownForm />}/>
+          <Route path="/admin/inventory/tablecrowninv" element={<AdminBezelRingForm />}/>
 
           
 
