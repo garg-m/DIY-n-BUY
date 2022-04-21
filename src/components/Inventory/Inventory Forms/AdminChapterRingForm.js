@@ -60,6 +60,28 @@ const AdminChapterRingForm = () => {
        
         />
         </div>
+
+        <div>
+        <label>Imagepath</label>
+        <input
+        type="text"
+        required
+        value={imagepath}
+        onChange={(e)=>setImagepath(e.target.value)}
+       
+        />
+        </div>
+
+        <div>
+        <label>Style</label>
+        <input
+        type="text"
+        required
+        value={style}
+        onChange={(e)=>setStyle(e.target.value)}
+       
+        />
+        </div>
        
         <div>
         <label>Finish</label>
