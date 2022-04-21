@@ -30,19 +30,19 @@ const AdminCaseForm = () => {
       <div>
           <h2 align="center">Welcome Admin!!!</h2>
           <h3 align="center">Fill the form to add a new case!!!</h3>
-          <form align="center" onSubmit={handleSubmit}>
-              <div >
+          <form align="center" onSubmit={handleSubmit} id="addpart">
+              <div  >
               <label>Shape</label>
-        <input
+        <input id='shape'
         type="text"
         required
         value={shape}
         onChange={(e)=> setShape(e.target.value)}
         />
               </div>
-              <div>
+              <div >
               <label>Width</label>
-        <input
+        <input id='width'
         type="number"
         required
         value={width}
@@ -50,9 +50,9 @@ const AdminCaseForm = () => {
        
         />
               </div>
-        <div>
+        <div >
         <label>DialSize</label>
-        <input
+        <input id='dialsize'
         type="number"
         required
         value={dialsize}
@@ -61,9 +61,9 @@ const AdminCaseForm = () => {
         />
         </div>
        
-        <div>
+        <div >
         <label>Material</label>
-        <input
+        <input id='material'
         type="text"
         required
         value={material}
@@ -71,9 +71,9 @@ const AdminCaseForm = () => {
        
         />
         </div>
-        <div>
+        <div >
         <label>Finish</label>
-        <input
+        <input id='finish'
         type="text"
         required
         value={finish}
@@ -81,9 +81,9 @@ const AdminCaseForm = () => {
        
         /> 
         </div>
-        <div>
+        <div >
         <label>Movement</label>
-        <input
+        <input id='movements'
         type="text"
         required
         value={movements}
@@ -91,9 +91,9 @@ const AdminCaseForm = () => {
        
         />
         </div>
-        <div>
+        <div >
         <label>Color</label>
-        <input
+        <input id='color'
         type="text"
         required
         value={color}
@@ -103,7 +103,7 @@ const AdminCaseForm = () => {
         </div>
        
         <div>
-        <button type='submit'>Add Part</button>
+        <button  type='submit'>Add Part</button>
         </div>
         
         
