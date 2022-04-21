@@ -53,6 +53,3 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C64A815E5F9040F0929A9EB9BAA15AED }}
           package: .
-      
-      - name: 'Serve'
-        run: pm2 serve /home/site/wwwroot/build --no-daemon
