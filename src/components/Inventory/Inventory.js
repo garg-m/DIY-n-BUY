@@ -12,8 +12,9 @@ import { TableCrownInventory } from "./Inventory Tables/TableCrownInventory";
 import { TableBezelRingInventory } from "./Inventory Tables/TableBezelRingInventory";
 
 import { TableBezelInsert } from "../partComponents/TableBezelInsert";
+import { TableChapterRing } from "../partComponents/TableChapterRing";
 
-import { TableChapterRingInventory } from "../partComponents/TableChapterRing";
+
 
 import { TableDial } from "../partComponents/TableDial";
 
@@ -23,7 +24,7 @@ import { TableHand } from "../partComponents/TableHand";
 import { TableDialInventory } from "./Inventory Tables/TableDialInventory";
 import { TableStrapInventory } from "./Inventory Tables/TableStrapInventory";
 import { TableHandsInventory } from "./Inventory Tables/TableHandInventory";
-import { TableChapterRingInventory } from "./Inventory Tables/TableChapterRing";
+//import { TableChapterRingInventory } from "./Inventory Tables/TableChapterRing";
 
 export default class Inventory extends Component {
 
@@ -214,7 +215,7 @@ export default class Inventory extends Component {
             
   
             <div > 
-            <TableChapterRingInventory />
+            <TableChapterRing />
             </div>
             
   
