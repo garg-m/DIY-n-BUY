@@ -55,4 +55,4 @@ jobs:
           package: .
       
       - name: 'Serve'
-        run: serve -l 1234
+        run: pm2 serve /home/site/wwwroot/build --no-daemon
