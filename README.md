@@ -23,6 +23,7 @@ https://github.com/harsh-soni/DIY-n-BUY/wiki/API-endpoints
 https://github.com/users/kireeti-r/projects/1
 
 ## Link to Sprint 4 Deliverables
+https://github.com/harsh-soni/DIY-n-BUY/blob/main/Sprint4.md
 
 ## Frontend Team Members
 
