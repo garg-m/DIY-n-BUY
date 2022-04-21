@@ -54,7 +54,5 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C64A815E5F9040F0929A9EB9BAA15AED }}
           package: .
       
-      - name: 'Serve with pm2'
-        run: |
-          sudo npm install -g pm2
-          pm2 serve /home/site/wwwroot/build --no-daemon --spa
+      - name: 'Serve with npx'
+        run: npx serve -s
