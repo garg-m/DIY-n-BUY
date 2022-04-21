@@ -25,7 +25,7 @@ https://github.com/users/kireeti-r/projects/1
 
 ## Frontend Team Members
 
-Krishna Kireeti Rayaprolu-rayaprolu.k@ufl.edu -<br/>
+Krishna Kireeti Rayaprolu- rayaprolu.k@ufl.edu -<br/>
 Mayank Garg- gargm@ufl.edu- <br/>
 
 ## Backend Team Members
