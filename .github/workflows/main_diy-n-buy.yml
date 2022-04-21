@@ -54,5 +54,5 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C64A815E5F9040F0929A9EB9BAA15AED }}
           package: .
       
-      - name: 'Serve with npx'
+      - name: 'Serve with npx on linux'
         run: npx serve -s
