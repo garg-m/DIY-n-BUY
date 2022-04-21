@@ -8,7 +8,7 @@ The hobbyist can create fresh builds, save those for future modifications, share
 
 Today, the decision to own a mechanical watch is not a logical one. And yet, there is a broad community of watch enthusiasts who hunt for aftermarket parts and continue to surprise with most creative builds. This holds true for many other kind of hobbyists, which is why our aim with this project is to standardize DIY visualization so that such cool pursuits continue to foster, with cool software to go with it.
 
-# Functionality GIFs
+# Functionality Video
 
 # Cypress Test Video
 
