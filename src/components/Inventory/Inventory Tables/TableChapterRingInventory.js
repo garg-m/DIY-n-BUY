@@ -12,12 +12,12 @@ import reactDom from "react-dom";
 import "./TableInventory.css"
 import {Grid, Card, Typography, Tabs, Tab, Box} from '@mui/material'
 
-export const TableCaseInventory = () => {
+export const TableChapterRingInventory = () => {
 
     const [tableData, setData] = useState([]);
 
         useEffect(() => {
-            fetch('http://localhost:3001/getAll/chapterRing/', {
+            fetch('http://localhost:3001/getAll/chapterRings/', {
                 method: "GET",
                 mode: 'cors',
             })
@@ -33,7 +33,7 @@ export const TableCaseInventory = () => {
         }, []);
 
         const columns = useMemo(() => groupedColumnsChapterRing, [])
-        const data = useMemo(() => MOCK_DATA_C, [])
+        const data = useMemo(() => MOCK_DATA_Chapter_Ring, [])
 
         const tableInstance = useTable({
             columns,
@@ -91,7 +91,7 @@ export const TableCaseInventory = () => {
                                     <tr {...row.getRowProps()} onClick={() => {
                                         //VisualizerSegment.changeImgSrc('case',row.original.imagepath)
                                         console.log(row.original.imagepath)
-                                        localStorage.setItem('selectedCase', CircularJSON.stringify(row.original))
+                                        localStorage.setItem('selectedChapterRing', CircularJSON.stringify(row.original))
                                     }}>
                                         {
                                             row.cells.map(cell => {
@@ -137,7 +137,7 @@ export const TableCaseInventory = () => {
                 </div>
                 <div align="center">
                    
-                <Link to="/admin/inventory/tablecaseinv">
+                <Link to="/admin/inventory/tablechapterringinv">
          <button type="button">
               Add Parts!
          </button>

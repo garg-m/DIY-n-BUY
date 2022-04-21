@@ -22,8 +22,9 @@ import { TableStrap } from "../partComponents/TableStrap";
 import { TableHand } from "../partComponents/TableHand";
 import { TableDialInventory } from "./Inventory Tables/TableDialInventory";
 import { TableStrapInventory } from "./Inventory Tables/TableStrapInventory";
-import { TableHandsInventory } from "./Inventory Tables/TableHandInventory";
+import { TableHandInventory } from "./Inventory Tables/TableHandInventory";
 import { TableChapterRing } from "../partComponents/TableChapterRing";
+import { TableChapterRingInventory } from "./Inventory Tables/TableChapterRingInventory";
 
 export default class Inventory extends Component {
 
@@ -214,7 +215,7 @@ export default class Inventory extends Component {
             
   
             <div > 
-            <TableChapterRing />
+            <TableChapterRingInventory />
             </div>
             
   
@@ -279,7 +280,7 @@ export default class Inventory extends Component {
           
   
             <div > 
-            <TableHandsInventory />
+            <TableHandInventory />
             </div>
             
   

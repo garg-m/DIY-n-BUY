@@ -14,13 +14,13 @@ const AdminHandForm = () => {
     const handleSubmit=(e)=>{
             e.preventDefault()
             //this.props.history.push('/admin/inventory/successpage')
-            const Crown={type,style,material,finish,color}
-            console.log(Crown)
-            fetch('http://localhost:3001/create/hand',{
+            const Hands={type,style,material,finish,color}
+            console.log(Hands)
+            fetch('http://localhost:3001/create/hands',{
                 method:'POST',
                 mode:'cors',
                 headers: {"Content-Type":"application/json charset=UTF-8"},
-                body: JSON.stringify(Crown)
+                body: JSON.stringify(Hands)
             }).then((response) => {
                 if(response){
                     window.location.href = "/admin/inventory/successpage";

@@ -4,7 +4,6 @@ import { useState } from 'react'
 const AdminStrapForm = () => {
 
     const [type, setType]=useState('')
-    const [movements, setMovements]=useState('')
     const [style, setStyle]=useState('')
 
     const[material, setMaterial]=useState('')
@@ -17,13 +16,13 @@ const AdminStrapForm = () => {
     const handleSubmit=(e)=>{
         e.preventDefault()
         //this.props.history.push('/admin/inventory/successpage')
-        const Crown={type,style,material,finish,color}
-        console.log(Dial)
-        fetch('http://localhost:3001/create/strap',{
+        const Straps={type,style,material,finish,color}
+        console.log(Straps)
+        fetch('http://localhost:3001/create/straps',{
             method:'POST',
             mode:'cors',
             headers: {"Content-Type":"application/json charset=UTF-8"},
-            body: JSON.stringify(Crown)
+            body: JSON.stringify(Straps)
         }).then((response) => {
             if(response){
                 window.location.href = "/admin/inventory/successpage";

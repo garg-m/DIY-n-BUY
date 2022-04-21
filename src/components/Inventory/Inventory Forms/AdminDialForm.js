@@ -16,7 +16,7 @@ const AdminDialForm = () => {
     const handleSubmit=(e)=>{
         e.preventDefault()
         //this.props.history.push('/admin/inventory/successpage')
-        const Crown={type,style,material,finish,color}
+        const Dial={type,style,movements,material,finish,color}
         console.log(Dial)
         fetch('http://localhost:3001/create/dial',{
             method:'POST',
@@ -66,6 +66,16 @@ return (
      
       />
       </div>
+      <div>
+              <label>Movements</label>
+        <input
+        type="text"
+        required
+        value={movements}
+        onChange={(e)=>setMovements(e.target.value)}
+       
+        />
+              </div>
      
       <div>
       <label>Finish</label>
