@@ -11,7 +11,7 @@ import { TableCrownInventory } from "./Inventory Tables/TableCrownInventory";
 
 import { TableBezelRingInventory } from "./Inventory Tables/TableBezelRingInventory";
 
-import { TableBezelInsert } from "../partComponents/TableBezelInsert";
+import { TableBezelInsertInventory } from "./Inventory Tables/TableBezelInsertInventory";
 
 // import { TableChapterRingInventory } from "../partComponents/TableChapterRing";
 
@@ -190,7 +190,7 @@ export default class Inventory extends Component {
             
   
             <div > 
-            <TableBezelInsert />
+            <TableBezelInsertInventory />
             </div>
             
   
