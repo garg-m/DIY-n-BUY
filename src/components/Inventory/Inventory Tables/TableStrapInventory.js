@@ -34,7 +34,7 @@ export const TableStrapInventory = () => {
     }, []);
 
     const columns = useMemo(() => groupedColumnsStrap, [])
-    const data = useMemo(() => MOCK_DATA_CROWN, [])
+    const data = useMemo(() => MOCK_DATA_STRAP, [])
 
     const tableInstance = useTable({
         columns,

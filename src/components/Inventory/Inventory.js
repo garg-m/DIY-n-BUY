@@ -20,6 +20,9 @@ import { TableDial } from "../partComponents/TableDial";
 import { TableStrap } from "../partComponents/TableStrap";
 
 import { TableHand } from "../partComponents/TableHand";
+import { TableDialInventory } from "./Inventory Tables/TableDialInventory";
+import { TableStrapInventory } from "./Inventory Tables/TableStrapInventory";
+import { TableHandsInventory } from "./Inventory Tables/TableHandInventory";
 export default class Inventory extends Component {
 
 
@@ -231,7 +234,7 @@ export default class Inventory extends Component {
            
   
             <div > 
-            <TableDial />
+            <TableDialInventory />
             </div>
             
   
@@ -253,7 +256,7 @@ export default class Inventory extends Component {
           
   
             <div > 
-            <TableStrap />
+            <TableStrapInventory />
             </div>
            
   
@@ -274,7 +277,7 @@ export default class Inventory extends Component {
           
   
             <div > 
-            <TableHand />
+            <TableHandsInventory />
             </div>
             
   

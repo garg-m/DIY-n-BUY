@@ -33,7 +33,7 @@ export const TableDialInventory = () => {
     }, []);
 
     const columns = useMemo(() => groupedColumnsDial, [])
-    const data = useMemo(() => MOCK_DATA_CROWN, [])
+    const data = useMemo(() => MOCK_DATA_DIAL, [])
 
     const tableInstance = useTable({
         columns,
