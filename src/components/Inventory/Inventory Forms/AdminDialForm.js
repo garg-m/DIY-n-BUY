@@ -17,7 +17,7 @@ const AdminDialForm = () => {
         e.preventDefault()
         //this.props.history.push('/admin/inventory/successpage')
         const Crown={type,style,material,finish,color}
-        console.log(Crown)
+        console.log(Dial)
         fetch('http://localhost:3001/create/dial',{
             method:'POST',
             mode:'cors',
@@ -32,7 +32,7 @@ const AdminDialForm = () => {
 return (
     <div>
         <h2 align="center">Welcome Admin!!!</h2>
-        <h3 align="center">Fill the form to add a new hand!!!</h3>
+        <h3 align="center">Fill the form to add a new dial!!!</h3>
         <form align="center" onSubmit={handleSubmit}>
             <div >
             <label>Type</label>
