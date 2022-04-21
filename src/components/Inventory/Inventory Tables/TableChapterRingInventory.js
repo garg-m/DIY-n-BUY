@@ -12,47 +12,49 @@ import reactDom from "react-dom";
 import "./TableInventory.css"
 import {Grid, Card, Typography, Tabs, Tab, Box} from '@mui/material'
 
-const [tableData, setData] = useState([]);
+export const TableCaseInventory = () => {
 
-    useEffect(() => {
-        fetch('http://localhost:3001/getAll/chapterRing/', {
-            method: "GET",
-            mode: 'cors',
-        })
-            .then((response) => response.text()
-                .then(jsonContents => {
-                    console.log(JSON.parse(jsonContents))
-                    setData(JSON.parse(jsonContents))
-                })
-                .catch((error) => {
-                    console.error(error);
-                }));
+    const [tableData, setData] = useState([]);
 
-    }, []);
+        useEffect(() => {
+            fetch('http://localhost:3001/getAll/chapterRing/', {
+                method: "GET",
+                mode: 'cors',
+            })
+                .then((response) => response.text()
+                    .then(jsonContents => {
+                        console.log(JSON.parse(jsonContents))
+                        setData(JSON.parse(jsonContents))
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                    }));
 
-    const columns = useMemo(() => groupedColumnsChapterRing, [])
-    const data = useMemo(() => MOCK_DATA_CASE, [])
+        }, []);
 
-    const tableInstance = useTable({
-        columns,
-        data
-    }, useSortBy, usePagination, useRowSelect)
+        const columns = useMemo(() => groupedColumnsChapterRing, [])
+        const data = useMemo(() => MOCK_DATA_C, [])
 
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        page,
-        nextPage,
-        previousPage,
-        canNextPage,
-        canPreviousPage,
-        pageOptions,
-        gotoPage,
-        pageCount,
-        state,
-        prepareRow,
-    } = tableInstance
+        const tableInstance = useTable({
+            columns,
+            data
+        }, useSortBy, usePagination, useRowSelect)
 
-    const { pageIndex } = state
-    const CircularJSON = require('circular-json')
+        const {
+            getTableProps,
+            getTableBodyProps,
+            headerGroups,
+            page,
+            nextPage,
+            previousPage,
+            canNextPage,
+            canPreviousPage,
+            pageOptions,
+            gotoPage,
+            pageCount,
+            state,
+            prepareRow,
+        } = tableInstance
+
+        const { pageIndex } = state
+        const CircularJSON = require('circular-json')
