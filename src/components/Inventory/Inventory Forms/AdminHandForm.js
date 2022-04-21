@@ -4,7 +4,7 @@ import { useState } from 'react'
 const AdminHandForm = () => {
 
     const [type, setType]=useState('')
-    const [movements, setMovements]=useState('')
+    const [style, setStyle]=useState('')
     
     const[material, setMaterial]=useState('')
 
@@ -14,7 +14,7 @@ const AdminHandForm = () => {
     const handleSubmit=(e)=>{
             e.preventDefault()
             //this.props.history.push('/admin/inventory/successpage')
-            const Crown={type,movements,material,finish,color}
+            const Crown={type,style,material,finish,color}
             console.log(Crown)
             fetch('http://localhost:3001/create/hand',{
                 method:'POST',
@@ -46,8 +46,8 @@ const AdminHandForm = () => {
           <input
           type="text"
           required
-          value={movements}
-          onChange={(e)=>setMovements(e.target.value)}
+          value={style}
+          onChange={(e)=> setStyle(e.target.value)}
          
           />
                 </div>
