@@ -8,11 +8,6 @@ on:
     branches:
       - main
   workflow_dispatch:
-  
-env:
-  AZURE_WEBAPP_NAME: diy-n-buy # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: 'build'  # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '10.x'    
 
 jobs:
   build:
@@ -57,4 +52,4 @@ jobs:
           app-name: 'diy-n-buy'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C64A815E5F9040F0929A9EB9BAA15AED }}
-          package: build
+          package: .
